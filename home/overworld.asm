@@ -110,7 +110,6 @@ OverworldLoopLessDelay::
 	jr nz, .displayDialogue
 	predef TryFieldMove
 	jp OverworldLoop
-	jp z, OverworldLoop
 
 .displayDialogue
 	predef GetTileAndCoordsInFrontOfPlayer
