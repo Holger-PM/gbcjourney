@@ -624,8 +624,9 @@ CooltrainerMData:
 	db 45, KINGLER, STARMIE, 0
 ; Victory Road 1F
 	db 42, IVYSAUR, WARTORTLE, CHARMELEON, CHARIZARD, 0
+; Route 3 - Journey
+	db 12, SPEAROW, MANKEY, 0
 ; Unused
-	db 44, IVYSAUR, WARTORTLE, CHARMELEON, 0
 	db 49, NIDOKING, 0
 	db 44, KINGLER, CLOYSTER, 0
 ; Viridian Gym
