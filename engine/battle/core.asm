@@ -3455,7 +3455,13 @@ MirrorMoveCheck:
 	ld hl, ResidualEffects2
 	ld de, 1
 	call IsInArray
-	jp c, JumpMoveEffect ; done here after executing effects of ResidualEffects2
+;;;;;;;;;; Holger - Checking that the base power is not 0
+	jr nc, .notResidual2Effect
+	ld a, [wPlayerMovePower]
+	and a ; check if zero base power
+	jp z, JumpMoveEffect
+.notResidual2Effect
+;;;;;;;;;;
 	ld a, [wMoveMissed]
 	and a
 	jr z, .moveDidNotMiss
@@ -5936,7 +5942,13 @@ EnemyCheckIfMirrorMoveEffect:
 	ld hl, ResidualEffects2
 	ld de, $1
 	call IsInArray
-	jp c, JumpMoveEffect
+;;;;;;;;;; Holger note - Checking that the base power is not 0 (enemy)
+	jr nc, .notResidual2EffectEnemy
+	ld a, [wEnemyMovePower]
+	and a ; Check if zero base power
+	jp z, JumpMoveEffect
+.notResidual2EffectEnemy
+;;;;;;;;;;
 	ld a, [wMoveMissed]
 	and a
 	jr z, .moveDidNotMiss
