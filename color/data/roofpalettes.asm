@@ -37,46 +37,46 @@ RoofPalettes:
 	dw CeruleanRoof  ; ROUTE_24
 	dw CeruleanRoof  ; ROUTE_25
 
-PalletRoof:
-	RGB 31,16,14
-	RGB 25,10,08
+PalletRoof: ; Journey
+	RGB 31,14,14
+	RGB 22,06,06
 
-ViridianRoof:
-	RGB 00,29,07
-	RGB 00,24,07
+ViridianRoof: ; Journey
+	RGB 10,28,16
+	RGB 04,18,08
 
-PewterRoof:
-	RGB 19,19,16
-	RGB 10,12,15
+PewterRoof: ; Journey
+	RGB 18,22,26
+	RGB 10,12,18
 
-CeruleanRoof:
-	RGB 17,27,31
-	RGB 05,15,31
+CeruleanRoof: ; Journey
+	RGB 10,24,31
+	RGB 04,14,22
 
-LavenderRoof:
-	RGB 23,15,31
-	RGB 16,05,31
+LavenderRoof: ; Journey
+	RGB 24,16,30
+	RGB 14,08,20
 
-VermilionRoof:
-	RGB 27,23,01
-	RGB 23,11,00
+VermilionRoof: ; Journey
+	RGB 31,24,08
+	RGB 22,14,02
 
-CeladonRoof:
-	RGB 15,26,19
-	RGB 03,20,11
+CeladonRoof: ; Journey
+	RGB 12,26,22
+	RGB 04,16,12
 
-FuchsiaRoof:
-	RGB 31,18,29
-	RGB 17,13,20
+FuchsiaRoof: ; Journey
+	RGB 31,16,26
+	RGB 20,08,14
 
-CinnabarRoof:
-	RGB 31,08,08
-	RGB 22,04,04
+CinnabarRoof: ; Journey
+	RGB 31,06,06
+	RGB 18,02,02
 
-IndigoRoof:
-	RGB 16,00,31
-	RGB 10,00,25
+IndigoRoof: ; Journey
+	RGB 16,12,30
+	RGB 08,04,18
 
-SaffronRoof:
-	RGB 31,26,00
-	RGB 31,15,00
+SaffronRoof: ; Journey
+	RGB 31,28,10
+	RGB 24,18,04
