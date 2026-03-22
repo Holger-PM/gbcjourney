@@ -9,7 +9,7 @@ Underground_Coll::
 	coll_tiles $0b, $0c, $13, $15, $18
 
 Overworld_Coll::
-	coll_tiles $00, $10, $1b, $20, $21, $23, $2c, $2d, $2e, $30, $31, $33, $39, $3c, $3e, $52, $54, $58, $5b
+	coll_tiles $00, $0D, $1b, $20, $21, $23, $2c, $2d, $2e, $30, $31, $33, $39, $3c, $3e, $52, $54, $58, $5b
 
 RedsHouse1_Coll::
 RedsHouse2_Coll::
@@ -47,7 +47,7 @@ Interior_Coll::
 	coll_tiles $04, $0f, $15, $1f, $3b, $45, $47, $55, $56
 
 Cavern_Coll::
-	coll_tiles $05, $15, $18, $1a, $20, $21, $22, $2a, $2d, $30
+	coll_tiles $01, $13, $16, $18, $1c, $1e, $25, $36, $38, $40, $42, $44, $46, $48
 
 	coll_tiles ; unused
 
@@ -71,4 +71,9 @@ Plateau_Coll::
 
 Safari_Coll::
 	coll_tiles $1e, $20, $2e, $30, $34, $37, $39, $3a, $40, $51, $52, $5a, $5c, $5e, $5f
-
+	
+RockTunnel_Coll::
+	coll_tiles $01, $1C, $1E, $40
+	
+OverworldM_Coll::
+	coll_tiles ; Add collisions

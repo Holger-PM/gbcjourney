@@ -10,4 +10,5 @@ WaterTilesets:
 	db FACILITY
 	db PLATEAU
 	db SAFARI
+	db OVERWORLD_M	
 	db -1 ; end

@@ -5,4 +5,5 @@ EscapeRopeTilesets:
 	db FACILITY
 	db INTERIOR
 	db SAFARI
+	db ROCK_TUNNEL
 	db -1 ; end

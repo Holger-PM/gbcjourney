@@ -11,4 +11,5 @@ DungeonTilesets:
 	db CEMETERY
 	db GYM
 	db SAFARI
+	db ROCK_TUNNEL
 	db -1 ; end

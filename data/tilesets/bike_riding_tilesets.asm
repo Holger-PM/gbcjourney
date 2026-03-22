@@ -5,6 +5,7 @@ BikeRidingTilesets::
 	db SHIP_PORT
 	db CAVERN
 	db SAFARI
+	db OVERWORLD_M
 	db -1 ; end
 
 BikeRidingMaps::

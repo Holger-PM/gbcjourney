@@ -125,7 +125,11 @@ Cavern_GFX::        INCBIN "gfx/tilesets/cavern.2bpp"
 ENDC
 Cavern_Block::      INCBIN "gfx/blocksets/cavern.bst"
 
+RockTunnel_GFX::	INCBIN "gfx/tilesets/rock_tunnel.2bpp"
+RockTunnel_Block::	INCBIN "gfx/blocksets/rock_tunnel.bst"
 
+OverworldM_GFX::	INCBIN "gfx/tilesets/overworld_m.2bpp"
+OverworldM_Block::	INCBIN "gfx/blocksets/overworld_m.bst"
 
 
 
