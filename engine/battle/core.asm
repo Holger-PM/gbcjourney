@@ -4801,24 +4801,24 @@ CriticalHitTest:
 	jr nz, .checkIfHighCritMoveLoop ; check the next move in HighCriticalMoves
 	jr .checkForFocusEnergy      ; continue as a normal move
 .highCriticalMove
-	inc b                        ; +2 stages for high crit moves
-	inc b
+	inc b                        ; +1 stages for high crit moves
 .checkForFocusEnergy
 	ld a, [de]
 	bit GETTING_PUMPED, a        ; test for focus energy
 	jr z, .noFocusEnergyUsed
-	inc b                        ; focus energy +1 stage
+	inc b                        ; focus energy +2 stage
+	inc b	
 .noFocusEnergyUsed
 	ld a, b
-	cp 3                         ; stage 3+ 100% chance
+	cp 3                         ; stage 3+ (100% chance)
 	jr nc, .criticalHit
 	cp 2 
-	ld b, 128                    ; stage 2 1/2 chance 50%
+	ld b, 128                    ; stage 2 (50% chance)
 	jr z, .rng
 	cp 1
-	ld b, 32                     ; stage 1 1/8 chance 12.5%
+	ld b, 51                     ; stage 1 (19,92% chance)
 	jr z, .rng
-	ld b, 11                     ; stage 0 1/24 chance ~4.17%
+	ld b, 18                     ; stage 0 (7,03% chance)
 .rng
 	call BattleRandom            ; generates a random value, in "a"
 	cp b                         ; check a against calculated crit rate
