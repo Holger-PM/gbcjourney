@@ -31,6 +31,8 @@ MapPaletteAssignments:
 	dw FacilityPalMap    ; FACILITY
 	dw PlateauPalMap     ; PLATEAU
 	dw SafariPalMap      ; SAFARI
+	dw RockTunnelPalMap  ; ROCK_TUNNEL
+	dw OverworldMPalMap  ; OVERWORLD_M
 	assert_table_length NUM_TILESETS
 
 OverworldPalMap:
@@ -82,6 +84,7 @@ CemeteryPalMap:
 InteriorPalMap:
 	INCLUDE "color/tilesets/interior.asm"
 
+RockTunnelPalMap:
 CavernPalMap:
 IF SNOW
 	INCLUDE "color/tilesets/ice_cavern.asm"
@@ -117,3 +120,6 @@ IF SNOW
 ELSE
 	INCLUDE "color/tilesets/safari.asm"
 ENDC
+
+OverworldMPalMap:
+	INCLUDE "color/tilesets/overworld_m.asm"

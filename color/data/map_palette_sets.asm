@@ -26,9 +26,12 @@ MapPaletteSets:
 	dw FacilityPalSet    ; FACILITY
 	dw PlateauPalSet     ; PLATEAU
 	dw SafariPalSet      ; SAFARI
+	dw RockTunnelPalSet  ; ROCK_TUNNEL
+	dw OverworldMPalSet  ; OVERWORLD_M	
 	assert_table_length NUM_TILESETS
 
 OverworldPalSet:
+OverworldMPalSet:
 	db OUTDOOR_GRAY
 	db OUTDOOR_RED
 	db OUTDOOR_GREEN
@@ -138,6 +141,7 @@ CemeteryPalSet:
 	db INDOOR_PURPLE
 	db CRYS_TEXTBOX
 
+RockTunnelPalSet:
 CavernPalSet:
 	db CAVE_GRAY
 	db CAVE_RED
