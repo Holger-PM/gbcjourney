@@ -139,6 +139,40 @@ _Route3CooltrainerF3AfterBattleText::
 	line "foot of MT.MOON."
 	done
 
+_Route3HikerBattleText::
+	text "MT. MOON is made"
+    line "of rock, but my"
+    cont "will is harder!"
+    done
+
+_Route3HikerEndBattleText::
+	text "My rock"
+    line "strategy crumbled!"
+    prompt
+
+_Route3HikerAfterBattleText::
+	text "Turn around!"
+    line "MT. MOON is"
+    cont "to the West!"
+    done
+
+_Route3CooltrainerM1BattleText::
+    text "I'm not like the"
+    line "kids around here!"
+	done
+
+_Route3CooltrainerM1EndBattleText::
+	text ""
+    line "You're a pro too!"
+    prompt
+
+_Route3CooltrainerM1AfterBattleText::
+	text "MT. MOON is up"
+    line "ahead. Better be"
+    cont "ready for some"
+    cont "tough battles!"
+    done
+
 _Route3SignText::
 	text "ROUTE 3"
 	line "MT.MOON AHEAD"

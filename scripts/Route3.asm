@@ -24,6 +24,8 @@ Route3_TextPointers:
 	dw_const Route3Youngster4Text,    TEXT_ROUTE3_YOUNGSTER4
 	dw_const Route3Youngster5Text,    TEXT_ROUTE3_YOUNGSTER5
 	dw_const Route3CooltrainerF3Text, TEXT_ROUTE3_COOLTRAINER_F3
+	dw_const Route3HikerText,         TEXT_ROUTE3_HIKER
+	dw_const Route3CooltrainerM1Text, TEXT_ROUTE3_COOLTRAINER_M1	
 	dw_const Route3SignText,          TEXT_ROUTE3_SIGN
 
 Route3TrainerHeaders:
@@ -44,6 +46,10 @@ Route3TrainerHeader6:
 	trainer EVENT_BEAT_ROUTE_3_TRAINER_6, 3, Route3Youngster5BattleText, Route3Youngster5EndBattleText, Route3Youngster5AfterBattleText
 Route3TrainerHeader7:
 	trainer EVENT_BEAT_ROUTE_3_TRAINER_7, 2, Route3CooltrainerF3BattleText, Route3CooltrainerF3EndBattleText, Route3CooltrainerF3AfterBattleText
+Route3TrainerHeader8:
+	trainer EVENT_BEAT_ROUTE_3_TRAINER_8, 2, Route3HikerBattleText, Route3HikerEndBattleText, Route3HikerAfterBattleText	
+Route3TrainerHeader9:
+	trainer EVENT_BEAT_ROUTE_3_TRAINER_9, 2, Route3CooltrainerM1BattleText, Route3CooltrainerM1EndBattleText, Route3CooltrainerM1AfterBattleText
 	db -1 ; end
 
 Route3SuperNerdText:
@@ -192,6 +198,42 @@ Route3CooltrainerF3EndBattleText:
 
 Route3CooltrainerF3AfterBattleText:
 	text_far _Route3CooltrainerF3AfterBattleText
+	text_end
+
+Route3HikerText:
+	text_asm
+	ld hl, Route3TrainerHeader8
+	call TalkToTrainer
+	rst TextScriptEnd
+
+Route3HikerBattleText:
+	text_far _Route3HikerBattleText
+	text_end
+
+Route3HikerEndBattleText:
+	text_far _Route3HikerEndBattleText
+	text_end
+
+Route3HikerAfterBattleText:
+	text_far _Route3HikerAfterBattleText
+	text_end
+
+Route3CooltrainerM1Text:
+	text_asm
+	ld hl, Route3TrainerHeader9
+	call TalkToTrainer
+	rst TextScriptEnd
+
+Route3CooltrainerM1BattleText:
+	text_far _Route3CooltrainerM1BattleText
+	text_end
+
+Route3CooltrainerM1EndBattleText:
+	text_far _Route3CooltrainerM1EndBattleText
+	text_end
+
+Route3CooltrainerM1AfterBattleText:
+	text_far _Route3CooltrainerM1AfterBattleText
 	text_end
 
 Route3SignText:

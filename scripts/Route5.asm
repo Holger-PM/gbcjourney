@@ -4,7 +4,12 @@ Route5_Script:
 Route5_TextPointers:
 	def_text_pointers
 	dw_const Route5UndergroundPathSignText, TEXT_ROUTE5_UNDERGROUND_PATH_SIGN
+	dw_const Route5DaycareSignText, TEXT_ROUTE5_DAYCARE_SIGN
 
 Route5UndergroundPathSignText:
 	text_far _Route5UndergroundPathSignText
+	text_end
+	
+Route5DaycareSignText:
+	text_far _Route5DaycareSignText
 	text_end
