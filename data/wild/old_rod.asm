@@ -34,6 +34,7 @@ OldRodData:
 	dbw CERULEAN_CAVE_2F,    .Group1
 	dbw CERULEAN_CAVE_B1F,   .Group1
 	dbw CERULEAN_CAVE_1F,    .Group1
+	dbw ROUTE_3,             .Group1
 	db -1 ; end
 
 ; fishing groups

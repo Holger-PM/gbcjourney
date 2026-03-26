@@ -114,6 +114,9 @@ _MtMoon1FYoungster3AfterBattleText::
 	done
 
 _MtMoon1FBewareZubatSign::
-	text "Beware! ZUBAT is"
-	line "a blood sucker!"
+	text "MINER'S NOTE:"
+	line "Watch yourselves"
+	cont "in the depths."
+	cont "Some ONIX down"
+	cont "there are huge!"
 	done

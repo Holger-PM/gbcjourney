@@ -33,6 +33,7 @@ SuperRodData::
 	dbw SAFARI_ZONE_CENTER,  .Group10
 	dbw CERULEAN_CAVE_B1F,   .Group8
 	dbw CERULEAN_CAVE_1F,    .Group8
+	dbw ROUTE_3,             .Group3	
 	db -1 ; end
 
 ; fishing groups

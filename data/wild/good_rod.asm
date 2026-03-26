@@ -34,6 +34,7 @@ GoodRodData:
 	dbw CERULEAN_CAVE_2F,    .Group4
 	dbw CERULEAN_CAVE_B1F,   .Group4
 	dbw CERULEAN_CAVE_1F,    .Group4
+	dbw ROUTE_3,             .Group8	
 	db -1 ; end
 
 ; fishing groups

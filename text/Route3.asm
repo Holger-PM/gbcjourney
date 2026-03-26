@@ -162,8 +162,8 @@ _Route3CooltrainerM1BattleText::
 	done
 
 _Route3CooltrainerM1EndBattleText::
-	text ""
-    line "You're a pro too!"
+	text "You're"
+    line "a pro too!"
     prompt
 
 _Route3CooltrainerM1AfterBattleText::

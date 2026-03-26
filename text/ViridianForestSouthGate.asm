@@ -6,9 +6,10 @@ _ViridianForestSouthGateGirlText::
 	done
 
 _ViridianForestSouthGateLittleGirlText::
-	text "The other day, I"
-	line "saw a super strong"
-	cont "PIDGEOTTO!"
-	cont "I had to get away"
-	cont "fast!"
+	text "Be careful in"
+	line "there..."
+	cont "Some PIDGEOTTO"
+	cont "are very strong!"
+	cont "You might not be"
+	cont "ready yet!"
 	done
