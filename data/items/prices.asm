@@ -1,25 +1,25 @@
 ItemPrices::
 	table_width 3, ItemPrices
 	bcd3 10000 ; MASTER_BALL
-	bcd3 1500  ; ULTRA_BALL
-	bcd3 750   ; GREAT_BALL
-	bcd3 250   ; POKE_BALL
+	bcd3 1500  ; ULTRA_BALL 	- 1200
+	bcd3 750   ; GREAT_BALL 	- 600
+	bcd3 250   ; POKE_BALL		- 200
 	bcd3 0     ; TOWN_MAP
 	bcd3 0     ; BICYCLE
 	bcd3 0     ; SURFBOARD
 	bcd3 1000  ; SAFARI_BALL
 	bcd3 0     ; POKEDEX
-	bcd3 2100  ; MOON_STONE
-	bcd3 100   ; ANTIDOTE
-	bcd3 250   ; BURN_HEAL
-	bcd3 250   ; ICE_HEAL
-	bcd3 200   ; AWAKENING
+	bcd3 2100  ; MOON_STONE		- 0
+	bcd3  75   ; ANTIDOTE		- 100
+	bcd3 200   ; BURN_HEAL		- 250
+	bcd3 200   ; ICE_HEAL		- 200
+	bcd3 250   ; AWAKENING
 	bcd3 200   ; PARLYZ_HEAL
 	bcd3 3000  ; FULL_RESTORE
 	bcd3 2500  ; MAX_POTION
-	bcd3 1200  ; HYPER_POTION
-	bcd3 550   ; SUPER_POTION
-	bcd3 200   ; POTION
+	bcd3 1200  ; HYPER_POTION	- 1500
+	bcd3 550   ; SUPER_POTION	- 700
+	bcd3 200   ; POTION			- 300
 	bcd3 0     ; BOULDERBADGE
 	bcd3 0     ; CASCADEBADGE
 	bcd3 0     ; THUNDERBADGE
@@ -29,8 +29,8 @@ ItemPrices::
 	bcd3 0     ; VOLCANOBADGE
 	bcd3 0     ; EARTHBADGE
 	bcd3 550   ; ESCAPE_ROPE
-	bcd3 350   ; REPEL
-	bcd3 3000  ; OLD_AMBER
+	bcd3  50   ; REPEL			- 350
+	bcd3 3000  ; OLD_AMBER		- 0
 	bcd3 2100  ; FIRE_STONE
 	bcd3 2100  ; THUNDER_STONE
 	bcd3 2100  ; WATER_STONE
@@ -54,20 +54,20 @@ ItemPrices::
 	bcd3 600   ; FULL_HEAL
 	bcd3 1500  ; REVIVE
 	bcd3 4000  ; MAX_REVIVE
-	bcd3 2500  ; GUARD_SPEC
-	bcd3 500   ; SUPER_REPEL
-	bcd3 700   ; MAX_REPEL
-	bcd3 3000  ; DIRE_HIT
+	bcd3 2500  ; GUARD_SPEC		- 700
+	bcd3 250   ; SUPER_REPEL	- 500
+	bcd3 400   ; MAX_REPEL		- 700
+	bcd3 3000  ; DIRE_HIT		- 650
 	bcd3 10    ; COIN
-	bcd3 200   ; FRESH_WATER
-	bcd3 300   ; SODA_POP
-	bcd3 350   ; LEMONADE
+	bcd3 150   ; FRESH_WATER	- 200
+	bcd3 250   ; SODA_POP		- 300
+	bcd3 300   ; LEMONADE		- 350
 	bcd3 0     ; S_S_TICKET
 	bcd3 0     ; GOLD_TEETH
-	bcd3 1000  ; X_ATTACK
-	bcd3 1000  ; X_DEFEND
-	bcd3 1500  ; X_SPEED
-	bcd3 2000  ; X_SPECIAL
+	bcd3 1000  ; X_ATTACK		- 500
+	bcd3 1000  ; X_DEFEND		- 550
+	bcd3 1500  ; X_SPEED		- 350
+	bcd3 2000  ; X_SPECIAL		- 350
 	bcd3 0     ; COIN_CASE
 	bcd3 0     ; OAKS_PARCEL
 	bcd3 0     ; ITEMFINDER
@@ -78,7 +78,7 @@ ItemPrices::
 	bcd3 0     ; OLD_ROD
 	bcd3 0     ; GOOD_ROD
 	bcd3 0     ; SUPER_ROD
-	bcd3 9800  ; PP_UP
+	bcd3 9800  ; PP_UP			- 0
 	bcd3 0     ; ETHER
 	bcd3 0     ; MAX_ETHER
 	bcd3 0     ; ELIXER
