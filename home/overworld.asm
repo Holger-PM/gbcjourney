@@ -39,7 +39,7 @@ EnterMap::
 	ld [wJoyIgnore], a
 
 OverworldLoop::
-	rst _DelayFrame
+   ;call DelayFrame ;60fps mode
 OverworldLoopLessDelay::
 	rst _DelayFrame
 	call LoadGBPal
@@ -130,14 +130,14 @@ OverworldLoopLessDelay::
 	ld [wEnteringCableClub], a
 	jr z, .changeMap
 ; XXX can this code be reached?
-	predef LoadSAV
-	ld a, [wCurMap]
-	ld [wDestinationMap], a
-	call PrepareForSpecialWarp
-	ld a, [wCurMap]
-	call SwitchToMapRomBank ; switch to the ROM bank of the current map
-	ld hl, wCurMapTileset
-	set 7, [hl]
+;	predef LoadSAV
+;	ld a, [wCurMap]
+;	ld [wDestinationMap], a
+;	call SpecialWarpIn
+;	ld a, [wCurMap]
+;	call SwitchToMapRomBank ; switch to the ROM bank of the current map
+;	ld hl, wCurMapTileset
+;	set 7, [hl]
 .changeMap
 	jp EnterMap
 .checkForOpponent
@@ -278,7 +278,7 @@ OverworldLoopLessDelay::
 	jp c, OverworldLoop
 
 .noCollision
-	ld a, $08
+	ld a, $10
 	ld [wWalkCounter], a
 	jr .moveAhead2
 
@@ -1550,7 +1550,10 @@ AdvancePlayerSprite::
 	ld [wXCoord], a
 .afterUpdateMapCoords
 	ld a, [wWalkCounter] ; walking animation counter
-	cp $07
+	push bc
+	ld b, $0F
+	cp b
+	pop bc
 	jp nz, .scrollBackgroundAndSprites
 ; if this is the first iteration of the animation
 	ld a, c
@@ -1697,8 +1700,8 @@ AdvancePlayerSprite::
 	ld b, a
 	ld a, [wSpritePlayerStateData1XStepVector]
 	ld c, a
-	sla b
-	sla c
+	;sla b ; 60FPS mode doesn't need this
+	;sla c
 	ldh a, [hSCY]
 	add b
 	ldh [hSCY], a ; update background scroll Y
