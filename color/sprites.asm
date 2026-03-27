@@ -734,7 +734,7 @@ SpritePaletteAssignments: ; Characters on the overworld
 
 	; SPRITE_ZAPDOS
 	db SPR_PAL_ORANGE
-
+	
 
         ; 0x3d: SPRITE_BALL
 	db SPR_PAL_ORANGE
@@ -778,7 +778,7 @@ SpritePaletteAssignments: ; Characters on the overworld
 	; 0X50: SPRITE_BALL (POKEBALLS)
 	db SPR_PAL_ORANGE
 
-	; 0X50: SPRITE_WIGGLYTUFF
+	; 0X51: SPRITE_WIGGLYTUFF
 	db SPR_PAL_PURPLE
 
 	assert_table_length NUM_SPRITES

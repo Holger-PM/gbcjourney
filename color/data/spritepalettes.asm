@@ -1,19 +1,19 @@
 MapSpritePalettes: ; Taken from pokemon GSC.
 ; PAL_OW_RED - Journey
 	RGB 28,30,28
-	RGB 31,21,14
+	RGB 31,23,18
 	RGB 28,8,8
 	RGB 0,0,0
 
 ; PAL_OW_BLUE - Journey
 	RGB 28,30,28
-	RGB 31,21,14
+	RGB 31,23,18
 	RGB 10,15,28
 	RGB 0,0,0
 
 ; PAL_OW_GREEN - Journey
 	RGB 28,30,28
-	RGB 31,21,14
+	RGB 31,23,18
 	RGB 8,20,6
 	RGB 0,0,0
 
@@ -59,13 +59,13 @@ MapSpritePalettesIndoor: ; Taken from pokemon GSC.
 
 ; PAL_OW_RED - Journey
 	RGB 28,29,26
-	RGB 30,26,20
+	RGB 31,23,18
 	RGB 26,10,10
 	RGB 4,4,4
 
 ; PAL_OW_BLUE - Journey
 	RGB 28,29,26
-	RGB 30,26,20
+	RGB 31,23,18
 	RGB 12,16,24
 	RGB 4,4,4
 

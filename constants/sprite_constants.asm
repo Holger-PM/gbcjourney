@@ -104,7 +104,7 @@
 	const SPRITE_PIDGEY					 
 	const SPRITE_PIKACHU				 
 	const SPRITE_SEEL2					
-	const SPRITE_ZAPDOS					
+	const SPRITE_ZAPDOS		
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $3d
 	const SPRITE_FOSSIL                  ; $3e
