@@ -17,7 +17,7 @@ AttackAnimationPointers:
 	dw CutAnim
 	dw GustAnim
 	dw WingAttackAnim
-	dw WhirlwindAnim
+	dw WindShearAnim
 	dw FlyAnim
 	dw BindAnim
 	dw SlamAnim
@@ -314,9 +314,9 @@ WingAttackAnim:
 	battle_anim WING_ATTACK, SUBANIM_1_STAR_BIG_MOVING, 1, 6
 	db -1 ; end
 
-WhirlwindAnim:
-	battle_anim WHIRLWIND, SUBANIM_1_TORNADO, 1, 6
-	battle_anim NO_MOVE, SE_SLIDE_ENEMY_MON_OFF
+WindShearAnim:
+	battle_anim WIND_SHEAR, SUBANIM_1_TORNADO, 1, 6
+	battle_anim NO_MOVE, SUBANIM_1_STAR_BIG_MOVING, 1, 6
 	db -1 ; end
 
 FlyAnim:

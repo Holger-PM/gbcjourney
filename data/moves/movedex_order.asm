@@ -162,7 +162,7 @@ MovedexOrder:
 	db VICEGRIP
 	db WATER_GUN
 	db WATERFALL
-	db WHIRLWIND
+	db WIND_SHEAR
 	db WING_ATTACK
 	db WITHDRAW
 	db WRAP

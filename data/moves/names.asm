@@ -17,7 +17,7 @@ MoveNames::
 	li "CUT"
 	li "GUST"
 	li "WING ATTACK"
-	li "WHIRLWIND"
+	li "WIND SHEAR"
 	li "FLY"
 	li "BIND"
 	li "SLAM"

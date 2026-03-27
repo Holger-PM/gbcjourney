@@ -23,7 +23,7 @@
 	const CUT          ; 0f
 	const GUST         ; 10
 	const WING_ATTACK  ; 11
-	const WHIRLWIND    ; 12
+	const WIND_SHEAR   ; 12
 	const FLY          ; 13
 	const BIND         ; 14
 	const SLAM         ; 15
