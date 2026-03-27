@@ -1546,3 +1546,50 @@ PlayBattleAnimationGotID:
 	pop de
 	pop hl
 	ret
+	
+SuperFangEffect:
+	ldh a, [hWhoseTurn]
+	and a
+	ld hl, wEnemyMonHP
+	jr z, .playerTurn
+	ld hl, wBattleMonHP
+.playerTurn
+; set the damage to half the target's HP
+; PureRGBnote: CHANGED: now 2/3 the target's HP
+	ld a, 3
+	ldh [hDivisor], a
+	ld de, wDamage ; we'll store the whole opponent's current HP in the damage variable for now
+	ld a, [hli]
+	ldh [hDividend], a
+	ld [de], a
+	inc de
+	ld a, [hl]
+	ldh [hDividend + 1], a
+	ld [de], a
+	ld b, 2
+	call Divide
+	ldh a, [hQuotient + 2]
+	ld b, a
+	ldh a, [hQuotient + 3]
+	ld c, a
+	ld hl, wDamage ; subtract 1/3 of the mon's current HP from their current HP value to obtain 2/3 resultant damage
+	ld a, [hli]
+	ld d, a
+	ld a, [hl]
+	ld e, a
+	; subtract bc from de
+	sub c
+	ld e, a
+	ld a, d
+	sbc b
+	ld d, a
+	; de = resultant value
+	ld hl, wDamage
+	ld [hli], a
+	ld a, e
+	ld [hl], a
+	or d
+	ret nz
+; make sure Super Fang's damage is always at least 1
+	ld [hl], 1
+	ret
