@@ -25,4 +25,6 @@ SpecialToPhysicalMoves:
         db THUNDERPUNCH
 ; Ice
         db ICE_PUNCH
+; Dragon
+        db SLAM
         db -1 ; end

@@ -141,6 +141,7 @@ StartBattle:
 	ld [wPartyGainExpFlags], a
 	ld [wPartyFoughtCurrentEnemyFlags], a
 	ld [wActionResultOrTookBattleTurn], a
+	ld [wLowHealthTonePairs], a ; shinpokerednote: FIXED: low health alarm sanity: clear low health tone tracker
 	inc a
 	ld [wFirstMonsNotOutYet], a
 	ld hl, wEnemyMon1HP
@@ -195,8 +196,7 @@ StartBattle:
 	and a ; is bait factor 0?
 	jr z, .checkEscapeFactor
 ; bait factor is not 0
-; divide b by 8 (making the mon less likely to run)
-  srl b
+; divide b by 4 (making the mon less likely to run)
 	srl b
 	srl b
 .checkEscapeFactor
@@ -292,6 +292,13 @@ EnemyRanText:
 	text_end
 
 MainInBattleLoop:
+;;;;;; PureRGBnote: ADDED: code that makes Sonicboom work as expected - only can flinch the first turn a mon is out.
+;;;;;; Meaning when these counts = exactly 1.
+	ld hl, wPlayerTurnCount
+	inc [hl]
+	inc hl
+	inc [hl] ; wEnemyTurnCount
+;;;;;;
 	call ReadPlayerMonCurHPAndStatus
 	ld hl, wBattleMonHP
 	ld a, [hli]
@@ -778,6 +785,11 @@ HandleEnemyMonFainted:
 	ret c
 	call ChooseNextMon
 .skipReplacingBattleMon
+;;;;;;;;;; PureRGBnote: CHANGED: clear the previous move used when the pokemon faints so disable won't pick it up
+	xor a
+	ld [wEnemyLastSelectedMoveDisable], a
+	ld [wEnemyTurnCount], a
+;;;;;;;;;;	
 	ld a, $1
 	ld [wActionResultOrTookBattleTurn], a
 	call ReplaceFaintedEnemyMon
@@ -1048,6 +1060,9 @@ HandlePlayerMonFainted:
 	call AnyEnemyPokemonAliveCheck
 	jp z, TrainerBattleVictory
 .doUseNextMonDialogue
+;;;;;;;;;; PureRGBnote: CHANGED: clear the previous move used when the pokemon faints so disable won't pick it up
+	call ResetDisableAndPlayerMovedFlag
+;;;;;;;;;;
 	call DoUseNextMonDialogue
 	ret c ; return if the player ran from battle
 	call ChooseNextMon
@@ -1147,6 +1162,9 @@ UseNextMonText:
 ; choose next player mon to send out
 ; stores whether enemy mon has no HP left in Z flag
 ChooseNextMon:
+	;;;;;;;;; PureRGB: CHANGED: reset disable move indicator when we switch pokemon so the move disabled is random until we use a move again with the new pokemon.
+	call ResetDisableAndPlayerMovedFlag
+	;;;;;;;;;
 	ld a, BATTLE_PARTY_MENU
 	ld [wPartyMenuTypeOrMessageID], a
 	call DisplayPartyMenu
@@ -2578,6 +2596,9 @@ PartyMenuOrRockOrRun:
 
 SwitchPlayerMon:
 	callfar RetreatMon
+	;;;;;;;;; PureRGB: CHANGED: reset disable move indicator when we switch pokemon so the move disabled is random until we use a move again with the new pokemon.
+	call ResetDisableAndPlayerMovedFlag
+	;;;;;;;;;
 	ld c, 50
 	rst _DelayFrames
 	call AnimateRetreatingPlayerMon
@@ -4971,22 +4992,7 @@ ApplyAttackToEnemyPokemon:
 	jp z, ApplyAttackToEnemyPokemonDone ; no attack to apply if base power is 0
 	jr ApplyDamageToEnemyPokemon
 .superFangEffect
-; set the damage to half the target's HP
-	ld hl, wEnemyMonHP
-	ld de, wDamage
-	ld a, [hli]
-	srl a
-	ld [de], a
-	inc de
-	ld b, a
-	ld a, [hl]
-	rr a
-	ld [de], a
-	or b
-	jr nz, ApplyDamageToEnemyPokemon
-; make sure Super Fang's damage is always at least 1
-	ld a, $01
-	ld [de], a
+	call SuperFangEffect
 	jr ApplyDamageToEnemyPokemon
 .specialDamage
 	ld hl, wBattleMonLevel
@@ -5000,27 +5006,24 @@ ApplyAttackToEnemyPokemon:
 	ld b, SONICBOOM_DAMAGE ; 20
 	cp SONICBOOM
 	jr z, .storeDamage
-	ld b, DRAGON_RAGE_DAMAGE ; 40
-	cp DRAGON_RAGE
-	jr z, .storeDamage
-; Psywave
-	push bc
-	ld a, [hl]
-	ld b, a
-	srl a
-	add b
-	ld b, a ; b = level * 1.5
-; loop until a random number in the range [level, b) is found
-.loop
-	call BattleRandom
-	ld c, a ; store the random number in 'c'
-	ld a, [wBattleMonLevel]
-	add c ; add the level to the random number
-	jr c, .loop ; if carry is set (overflow), generate a new random number
-	cp b
-	jr nc, .loop
-	pop bc
-	ld b, a
+	; PureRGBnote: CHANGED: dragon rage doesn't do a set 40 damage anymore
+	;ld b, DRAGON_RAGE_DAMAGE ; 40 dragon rage was made a normal move instead of fixed damage
+	;cp DRAGON_RAGE
+	;jr z, .storeDamage
+; Psywave ; PureRGBnote: CHANGED: Psywave is a basic low power psychic move now, don't need this old code for randomizing its damage
+;	ld a, [hl]
+;	ld b, a
+;	srl a
+;	add b
+;	ld b, a ; b = level * 1.5
+; loop until a random number in the range [1, b) is found
+;.loop
+;	call BattleRandom
+;	and a
+;	jr z, .loop
+;	cp b
+;	jr nc, .loop
+;	ld b, a
 .storeDamage ; store damage value at b
 	ld hl, wDamage
 	xor a
@@ -5094,22 +5097,7 @@ ApplyAttackToPlayerPokemon:
 	jp z, ApplyAttackToPlayerPokemonDone
 	jr ApplyDamageToPlayerPokemon
 .superFangEffect
-; set the damage to half the target's HP
-	ld hl, wBattleMonHP
-	ld de, wDamage
-	ld a, [hli]
-	srl a
-	ld [de], a
-	inc de
-	ld b, a
-	ld a, [hl]
-	rr a
-	ld [de], a
-	or b
-	jr nz, ApplyDamageToPlayerPokemon
-; make sure Super Fang's damage is always at least 1
-	ld a, $01
-	ld [de], a
+	call SuperFangEffect
 	jr ApplyDamageToPlayerPokemon
 .specialDamage
 	ld hl, wEnemyMonLevel
@@ -5118,32 +5106,29 @@ ApplyAttackToPlayerPokemon:
 	ld a, [wEnemyMoveNum]
 	cp SEISMIC_TOSS
 	jr z, .storeDamage
-	cp NIGHT_SHADE
-	jr z, .storeDamage
+	; cp NIGHT_SHADE
+	; jr z, .storeDamage ; night shade was made a normal move instead of fixed damage
 	ld b, SONICBOOM_DAMAGE
 	cp SONICBOOM
 	jr z, .storeDamage
-	ld b, DRAGON_RAGE_DAMAGE
-	cp DRAGON_RAGE
-	jr z, .storeDamage
-; Psywave
-	push bc
-	ld a, [hl]
-	ld b, a
-	srl a
-	add b
-	ld b, a ; b = attacker's level * 1.5
-; loop until a random number in the range [level, b) is found
-.loop
-	call BattleRandom
-	ld c, a ; store the random number in 'c'
-	ld a, [wEnemyMonLevel]
-	add c ; add the level to the random number
-	jr c, .loop ; if carry is set (overflow), generate a new random number
-	cp b
-	jr nc, .loop
-	pop bc
-	ld b, a
+	; PureRGBnote: CHANGED: dragon rage doesn't do a set 40 damage anymore
+	;ld b, DRAGON_RAGE_DAMAGE ; dragon rage was made a normal move instead of fixed damage
+	;cp DRAGON_RAGE
+	;jr z, .storeDamage
+; Psywave ;; PureRGBnote: CHANGED: Psywave is now a basic low-power psychic move
+;	ld a, [hl]
+;	ld b, a
+;	srl a
+;	add b
+;	ld b, a ; b = attacker's level * 1.5
+; loop until a random number in the range [0, b) is found
+; this differs from the range when the player attacks, which is [1, b)
+; it's possible for the enemy to do 0 damage with Psywave, but the player always does at least 1 damage
+;.loop
+;	call BattleRandom
+;	cp b
+;	jr nc, .loop
+;	ld b, a
 .storeDamage
 	ld hl, wDamage
 	xor a
@@ -7781,4 +7766,10 @@ SetAISentOut:
 	set 1, a
 .partyret
 	ld [wAIWhichPokemonSentOutAlready], a
+	ret
+	
+ResetDisableAndPlayerMovedFlag:
+	xor a
+	ld [wPlayerLastSelectedMoveDisable], a
+	ld [wPlayerTurnCount], a
 	ret

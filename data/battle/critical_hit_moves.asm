@@ -4,4 +4,5 @@ HighCriticalMoves:
 	db CRABHAMMER
 	db SLASH
 	db RAZOR_WIND
+	db DRILL_PECK	
 	db -1 ; end

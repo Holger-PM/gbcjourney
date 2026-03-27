@@ -3,6 +3,8 @@
 ; range to be from 0 to 12.
 PriorityMovesList:
     db COUNTER,        1
+    db COMET_PUNCH,    8	
     db QUICK_ATTACK,   8
     db TRANSFORM,      8
+	db SONICBOOM,      9
     db -1 ; end
