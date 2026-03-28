@@ -724,17 +724,17 @@ JugglerAI:
 	jp AISwitchIfEnoughMons
 
 BlackbeltAI:
-	cp 13 percent - 1
-	ret nc
-	jp AIUseXAttack
+;	cp 13 percent - 1
+;	ret nc
+;	jp AIUseXAttack
 
 GiovanniAI:
-	cp 25 percent + 1
-	ret nc
-	ld a, 5
-	call AICheckIfHPBelowFraction
-	ret nc
-	jp AIUseHyperPotion
+;	cp 25 percent + 1
+;	ret nc
+;	ld a, 5
+;	call AICheckIfHPBelowFraction
+;	ret nc
+;	jp AIUseHyperPotion
 
 CooltrainerMAI:
 	cp 20 percent + 1
@@ -755,28 +755,28 @@ CooltrainerFAI:
 
 BrockAI:
 ; if his active monster has a status condition, use a full heal
-	ld a, [wEnemyMonStatus]
-	and a
-	ret z
-	jp AIUseFullHeal
+;	ld a, [wEnemyMonStatus]
+;	and a
+;	ret z
+;	jp AIUseFullHeal
 
 MistyAI:
-	cp 20 percent + 1
-	ret nc
-	jp AIUseXDefend
+;	cp 20 percent + 1
+;	ret nc
+;	jp AIUseXDefend
 
 LtSurgeAI:
-	cp 20 percent + 1
-	ret nc
-	jp AIUseXSpeed
+;	cp 20 percent + 1
+;	ret nc
+;	jp AIUseXSpeed
 
 ErikaAI:
-	cp 25 percent + 1
-	ret nc
-	ld a, 5
-	call AICheckIfHPBelowFraction
-	ret nc
-	jp AIUseHyperPotion
+;	cp 25 percent + 1
+;	ret nc
+;	ld a, 5
+;	call AICheckIfHPBelowFraction
+;	ret nc
+;	jp AIUseHyperPotion
 
 ;KogaAI:
 ;	cp 25 percent + 1
@@ -803,62 +803,62 @@ ErikaAI:
 ;	jp AIUseHyperPotion
 
 Rival2AI:
-	cp 13 percent - 1
-	ret nc
-	ld a, 5
-	call AICheckIfHPBelowFraction
-	ret nc
-	jp AIUseHyperPotion
+;	cp 13 percent - 1
+;	ret nc
+;	ld a, 5
+;	call AICheckIfHPBelowFraction
+;	ret nc
+;	jp AIUseHyperPotion
 
 Rival3AI:
-	cp 13 percent - 1
-	ret nc
-	ld a, 5
-	call AICheckIfHPBelowFraction
-	ret nc
-	jp AIUseFullRestore
+;	cp 13 percent - 1
+;	ret nc
+;	ld a, 5
+;	call AICheckIfHPBelowFraction
+;	ret nc
+;	jp AIUseFullRestore
 
 ProfOakAI:
-	cp 13 percent - 1
-	ret nc
-	ld a, 5
-	call AICheckIfHPBelowFraction
-	ret nc
-	jp AIUseFullRestore
+;	cp 13 percent - 1
+;	ret nc
+;	ld a, 5
+;	call AICheckIfHPBelowFraction
+;	ret nc
+;	jp AIUseFullRestore
 
 LoreleiAI:
-	cp 50 percent + 1
-	ret nc
-	ld a, 5
-	call AICheckIfHPBelowFraction
-	ret nc
-	jp AIUseHyperPotion
+;	cp 50 percent + 1
+;	ret nc
+;	ld a, 5
+;	call AICheckIfHPBelowFraction
+;	ret nc
+;	jp AIUseHyperPotion
 	
 BrunoAI:
-	cp 30 percent + 1
-	ret nc
-	ld a, 5
-	call AICheckIfHPBelowFraction
-	ret nc
-	jp AIUseHyperPotion
+;	cp 30 percent + 1
+;	ret nc
+;	ld a, 5
+;	call AICheckIfHPBelowFraction
+;	ret nc
+;	jp AIUseHyperPotion
 
 AgathaAI:
-	cp 8 percent
-	jp c, AISwitchIfEnoughMons
-	cp 50 percent + 1
-	ret nc
-	ld a, 4
-	call AICheckIfHPBelowFraction
-	ret nc
-	jp AIUseHyperPotion
+;	cp 8 percent
+;	jp c, AISwitchIfEnoughMons
+;	cp 50 percent + 1
+;	ret nc
+;	ld a, 4
+;	call AICheckIfHPBelowFraction
+;	ret nc
+;	jp AIUseHyperPotion
 
 LanceAI:
-	cp 50 percent + 1
-	ret nc
-	ld a, 5
-	call AICheckIfHPBelowFraction
-	ret nc
-	jp AIUseHyperPotion
+;	cp 50 percent + 1
+;	ret nc
+;	ld a, 5
+;	call AICheckIfHPBelowFraction
+;	ret nc
+;	jp AIUseHyperPotion
 
 
 GenericAI:
