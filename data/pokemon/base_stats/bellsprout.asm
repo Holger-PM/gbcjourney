@@ -1,26 +1,46 @@
-	db DEX_BELLSPROUT ; pokedex id
+	db DEX_BELLSPROUT ; Pokedex ID
 
-	db  50,  75,  35,  40,  70
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db 50             ; HP
+    db 75             ; Attack
+    db 35             ; Defense
+    db 40             ; Speed
+    db 70             ; Special
 
-	db GRASS, POISON ; type
-	db 255 ; catch rate
-	db 84 ; base exp
+; --- Types & Training ---
+    db GRASS          ; Type 1
+    db POISON         ; Type 2
+    db 255            ; Catch rate
+    db 84             ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/bellsprout.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/bellsprout.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/bellsprout.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/bellsprout.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw BellsproutPicFront, BellsproutPicBack
+    dw BellsproutPicFront, BellsproutPicBack
 
-	db GROWTH, VINE_WHIP, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+    db GROWTH, VINE_WHIP, NO_MOVE, NO_MOVE            ; Level 1 learnset
+    db GROWTH_MEDIUM_SLOW                             ; Growth rate
 
-	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         \
-	     MEGA_DRAIN,   SOLARBEAM,    MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         REST,         SUBSTITUTE,   CUT
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    SWORDS_DANCE, \
+    TOXIC,        \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    RAGE,         \
+    MEGA_DRAIN,   \
+    SOLARBEAM,    \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    REST,         \
+    SUBSTITUTE,   \
+    CUT
+; end
 
-	db BANK(BellsproutPicFront)
+    db BANK(BellsproutPicFront)

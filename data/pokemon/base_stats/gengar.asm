@@ -1,29 +1,59 @@
-	db DEX_GENGAR ; pokedex id
+	db DEX_GENGAR     ; Pokedex ID
 
-	db  60,  65,  60, 110, 130
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  60            ; HP
+    db  65            ; Attack
+    db  60            ; Defense
+    db 110            ; Speed
+    db 130            ; Special
 
-	db GHOST, POISON ; type
-	db 45 ; catch rate
-	db 190 ; base exp
+; --- Types & Training ---
+    db GHOST          ; Type 1
+    db POISON         ; Type 2
+    db  45            ; Catch rate
+    db 190            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/gengar.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/gengar.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/gengar.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/gengar.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw GengarPicFront, GengarPicBack
+    dw GengarPicFront, GengarPicBack
 
-	db LICK, CONFUSE_RAY, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+    db LICK, CONFUSE_RAY, NO_MOVE, NO_MOVE         ; Level 1 learnset
+    db GROWTH_MEDIUM_SLOW                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  HYPER_BEAM,   SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
-	     RAGE,         MEGA_DRAIN,   THUNDERBOLT,  THUNDER,      PSYCHIC_M,    \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         METRONOME,    SELFDESTRUCT, \
-	     SKULL_BASH,   DREAM_EATER,  REST,         PSYWAVE,      EXPLOSION,    \
-	     SUBSTITUTE,   STRENGTH
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    MEGA_PUNCH,   \
+    MEGA_KICK,    \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    HYPER_BEAM,   \
+    SUBMISSION,   \
+    COUNTER,      \
+    SEISMIC_TOSS, \
+    RAGE,         \
+    MEGA_DRAIN,   \
+    THUNDERBOLT,  \
+    THUNDER,      \
+    PSYCHIC_M,    \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    BIDE,         \
+    METRONOME,    \
+    SELFDESTRUCT, \
+    SKULL_BASH,   \
+    DREAM_EATER,  \
+    REST,         \
+    PSYWAVE,      \
+    EXPLOSION,    \
+    SUBSTITUTE,   \
+    STRENGTH
+; end
 
-	db BANK(GengarPicFront)
+    db BANK(GengarPicFront)

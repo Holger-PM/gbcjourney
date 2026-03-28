@@ -1,28 +1,46 @@
-	db DEX_FEAROW ; pokedex id
+	db DEX_FEAROW     ; Pokedex ID
 
-	db  65,  90,  65, 100,  61
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  65            ; HP
+    db  90            ; Attack
+    db  65            ; Defense
+    db 100            ; Speed
+    db  61            ; Special
 
-	db NORMAL, FLYING ; type
-	db 90 ; catch rate
-	db 162 ; base exp
+; --- Types & Training ---
+    db NORMAL         ; Type 1
+    db FLYING         ; Type 2
+    db  90            ; Catch rate
+    db 162            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/fearow.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/fearow.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/fearow.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/fearow.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw FearowPicFront, FearowPicBack
+    dw FearowPicFront, FearowPicBack
 
-	db PECK, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+    db PECK, GROWL, NO_MOVE, NO_MOVE               ; Level 1 learnset
+    db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm RAZOR_WIND,     WHIRLWIND,       TOXIC,     TAKE_DOWN,     \
-		 DOUBLE_EDGE,	HYPER_BEAM,   RAGE,         MIMIC,       DOUBLE_TEAM,   \
-	     BIDE,		SWIFT,        SKY_ATTACK,      REST,         SUBSTITUTE,    \
-		 FLY
+; --- TM/HM Learnset ---
+    tmhm \
+    RAZOR_WIND,   \
+    TOXIC,        \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    HYPER_BEAM,   \
+    RAGE,         \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    BIDE,         \
+    SWIFT,        \
+    SKY_ATTACK,   \
+    REST,         \
+    SUBSTITUTE,   \
+    FLY
+; end
 
-	; end
-
-	db BANK(FearowPicFront)
+    db BANK(FearowPicFront)

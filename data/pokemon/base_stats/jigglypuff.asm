@@ -1,30 +1,64 @@
-	db DEX_JIGGLYPUFF ; pokedex id
+	db DEX_JIGGLYPUFF ; Pokedex ID
 
-	db 115,  45,  20,  20,  25
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db 115            ; HP
+    db  45            ; Attack
+    db  20            ; Defense
+    db  20            ; Speed
+    db  25            ; Special
 
-	db NORMAL, NORMAL ; type
-	db 170 ; catch rate
-	db 76 ; base exp
+; --- Types & Training ---
+    db NORMAL         ; Type 1
+    db NORMAL         ; Type 2
+    db 170            ; Catch rate
+    db  76            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/jigglypuff.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/jigglypuff.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/jigglypuff.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/jigglypuff.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw JigglypuffPicFront, JigglypuffPicBack
+    dw JigglypuffPicFront, JigglypuffPicBack
 
-	db SING, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_FAST ; growth rate
+; --- Moves & Growth ---
+    db SING, NO_MOVE, NO_MOVE, NO_MOVE             ; Level 1 learnset
+    db GROWTH_FAST                                 ; Growth rate
 
-	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK, TOXIC, BODY_SLAM, TAKE_DOWN,   REST,    \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         SOLARBEAM,    \
-	     THUNDERBOLT,  THUNDER,      PSYCHIC_M,    TELEPORT,     MIMIC,        \
-	     DOUBLE_TEAM,  REFLECT,      BIDE,         FIRE_BLAST,   SKULL_BASH,   \
-	     THUNDER_WAVE, PSYWAVE,      TRI_ATTACK,   SUBSTITUTE,   STRENGTH,   \
-	     FLASH
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    MEGA_PUNCH,   \
+    MEGA_KICK,    \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    REST,         \
+    DOUBLE_EDGE,  \
+    BUBBLEBEAM,   \
+    WATER_GUN,    \
+    ICE_BEAM,     \
+    BLIZZARD,     \
+    SUBMISSION,   \
+    COUNTER,      \
+    SEISMIC_TOSS, \
+    RAGE,         \
+    SOLARBEAM,    \
+    THUNDERBOLT,  \
+    THUNDER,      \
+    PSYCHIC_M,    \
+    TELEPORT,     \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    FIRE_BLAST,   \
+    SKULL_BASH,   \
+    THUNDER_WAVE, \
+    PSYWAVE,      \
+    TRI_ATTACK,   \
+    SUBSTITUTE,   \
+    STRENGTH,     \
+    FLASH
+; end
 
-	db BANK(JigglypuffPicFront)
+    db BANK(JigglypuffPicFront)

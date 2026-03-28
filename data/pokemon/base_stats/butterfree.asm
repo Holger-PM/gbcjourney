@@ -1,27 +1,51 @@
-	db DEX_BUTTERFREE ; pokedex id
+	db DEX_BUTTERFREE ; Pokedex ID
 
-	db  60,  45,  50,  70,  80
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db 60             ; HP
+    db 45             ; Attack
+    db 50             ; Defense
+    db 70             ; Speed
+    db 90             ; Special
 
-	db BUG, FLYING ; type
-	db 45 ; catch rate
-	db 160 ; base exp
+; --- Types & Training ---
+    db BUG            ; Type 1
+    db FLYING         ; Type 2
+    db 45             ; Catch rate
+    db 160            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/butterfree.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/butterfree.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/butterfree.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/butterfree.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw ButterfreePicFront, ButterfreePicBack
+    dw ButterfreePicFront, ButterfreePicBack
 
-	db TACKLE, HARDEN, STRING_SHOT, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+    db TACKLE, HARDEN, STRING_SHOT, NO_MOVE           ; Level 1 learnset
+    db GROWTH_MEDIUM_FAST                             ; Growth rate
 
-	; tm/hm learnset
-	tmhm RAZOR_WIND,   WHIRLWIND,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
-	     HYPER_BEAM,   RAGE,         MEGA_DRAIN,   SOLARBEAM,    PSYCHIC_M,    \
-	     TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SWIFT,        REST,         PSYWAVE,      SUBSTITUTE,   FLASH
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    RAZOR_WIND,   \
+    TOXIC,        \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    HYPER_BEAM,   \
+    RAGE,         \
+    MEGA_DRAIN,   \
+    SOLARBEAM,    \
+    PSYCHIC_M,    \
+    TELEPORT,     \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    SWIFT,        \
+    REST,         \
+    PSYWAVE,      \
+    SUBSTITUTE,   \
+    FLASH
+; end
 
-	db BANK(ButterfreePicFront)
+    db BANK(ButterfreePicFront)

@@ -1,26 +1,45 @@
-	db DEX_SPEAROW ; pokedex id
+	db DEX_SPEAROW    ; Pokedex ID
 
-	db  40,  60,  30,  70,  31
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  40            ; HP
+	db  60            ; Attack
+	db  30            ; Defense
+	db  70            ; Speed
+	db  31            ; Special
 
-	db NORMAL, FLYING ; type
-	db 255 ; catch rate
-	db 58 ; base exp
+; --- Types & Training ---
+	db NORMAL         ; Type 1
+	db FLYING         ; Type 2
+	db 255            ; Catch rate
+	db  58            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/spearow.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/spearow.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/spearow.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/spearow.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw SpearowPicFront, SpearowPicBack
 
-	db PECK, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+	db PECK, GROWL, NO_MOVE, NO_MOVE                ; Level 1 learnset
+	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm RAZOR_WIND,   WHIRLWIND,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
-	     RAGE,         MIMIC,        DOUBLE_TEAM,  BIDE,         SWIFT,        \
-	     SKY_ATTACK,   REST,         SUBSTITUTE,   FLY
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	RAZOR_WIND,   \
+	TOXIC,        \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	RAGE,         \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	BIDE,         \
+	SWIFT,        \
+	SKY_ATTACK,   \
+	REST,         \
+	SUBSTITUTE,   \
+	FLY
+; end
 
 	db BANK(SpearowPicFront)

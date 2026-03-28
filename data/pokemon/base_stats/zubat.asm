@@ -1,26 +1,45 @@
-	db DEX_ZUBAT ; pokedex id
+	db DEX_ZUBAT      ; Pokedex ID
 
-	db  40,  45,  35,  55,  40
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  40            ; HP
+	db  45            ; Attack
+	db  35            ; Defense
+	db  55            ; Speed
+	db  40            ; Special
 
-	db POISON, FLYING ; type
-	db 255 ; catch rate
-	db 54 ; base exp
+; --- Types & Training ---
+	db POISON         ; Type 1
+	db FLYING         ; Type 2
+	db 255            ; Catch rate
+	db  54            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/zubat.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/zubat.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/zubat.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/zubat.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw ZubatPicFront, ZubatPicBack
 
-	db LEECH_LIFE, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+	db LEECH_LIFE, NO_MOVE, NO_MOVE, NO_MOVE       ; Level 1 learnset
+	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm RAZOR_WIND,   WHIRLWIND,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
-	     RAGE,         MEGA_DRAIN,   MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     SWIFT,        REST,         SUBSTITUTE,   FLY
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	RAZOR_WIND,   \
+	TOXIC,        \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	RAGE,         \
+	MEGA_DRAIN,   \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	BIDE,         \
+	SWIFT,        \
+	REST,         \
+	SUBSTITUTE,   \
+	FLY
+; end
 
 	db BANK(ZubatPicFront)

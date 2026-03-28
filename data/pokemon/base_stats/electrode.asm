@@ -1,27 +1,51 @@
-	db DEX_ELECTRODE ; pokedex id
+	db DEX_ELECTRODE  ; Pokedex ID
 
-	db  60,  50,  70, 140,  80
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  60            ; HP
+    db  50            ; Attack
+    db  70            ; Defense
+    db 140            ; Speed
+    db  80            ; Special
 
-	db ELECTRIC, ELECTRIC ; type
-	db 60 ; catch rate
-	db 150 ; base exp
+; --- Types & Training ---
+    db ELECTRIC       ; Type 1
+    db ELECTRIC       ; Type 2
+    db  60            ; Catch rate
+    db 150            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/electrode.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/electrode.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/electrode.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/electrode.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw ElectrodePicFront, ElectrodePicBack
+    dw ElectrodePicFront, ElectrodePicBack
 
-	db TACKLE, SCREECH, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+    db TACKLE, SCREECH, NO_MOVE, NO_MOVE           ; Level 1 learnset
+    db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,        TAKE_DOWN,    HYPER_BEAM,   RAGE,         THUNDERBOLT,  \
-	     THUNDER,      TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         SELFDESTRUCT, SWIFT,        SKULL_BASH,   REST,         \
-	     THUNDER_WAVE, EXPLOSION,    SUBSTITUTE,   FLASH
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    TOXIC,        \
+    TAKE_DOWN,    \
+    HYPER_BEAM,   \
+    RAGE,         \
+    THUNDERBOLT,  \
+    THUNDER,      \
+    TELEPORT,     \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    SELFDESTRUCT, \
+    SWIFT,        \
+    SKULL_BASH,   \
+    REST,         \
+    THUNDER_WAVE, \
+    EXPLOSION,    \
+    SUBSTITUTE,   \
+    FLASH
+; end
 
-	db BANK(ElectrodePicFront)
+    db BANK(ElectrodePicFront)

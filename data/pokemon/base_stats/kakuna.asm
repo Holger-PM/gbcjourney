@@ -1,24 +1,32 @@
-	db DEX_KAKUNA ; pokedex id
+	db DEX_KAKUNA     ; Pokedex ID
 
-	db  45,  25,  50,  35,  25
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  45            ; HP
+    db  25            ; Attack
+    db  50            ; Defense
+    db  35            ; Speed
+    db  25            ; Special
 
-	db BUG, POISON ; type
-	db 120 ; catch rate
-	db 71 ; base exp
+; --- Types & Training ---
+    db BUG            ; Type 1
+    db POISON         ; Type 2
+    db 120            ; Catch rate
+    db  71            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/kakuna.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/kakuna.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/kakuna.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/kakuna.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw KakunaPicFront, KakunaPicBack
+    dw KakunaPicFront, KakunaPicBack
 
-	db POISON_STING, STRING_SHOT, HARDEN, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+    db POISON_STING, STRING_SHOT, HARDEN, NO_MOVE  ; Level 1 learnset
+    db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm
-	; end
+; --- TM/HM Learnset ---
+    tmhm
+; end
 
-	db BANK(KakunaPicFront)
+    db BANK(KakunaPicFront)

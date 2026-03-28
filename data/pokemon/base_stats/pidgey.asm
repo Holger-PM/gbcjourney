@@ -1,26 +1,46 @@
-	db DEX_PIDGEY ; pokedex id
+	db DEX_PIDGEY     ; Pokedex ID
 
-	db  40,  45,  40,  56,  35
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  40            ; HP
+	db  45            ; Attack
+	db  40            ; Defense
+	db  56            ; Speed
+	db  35            ; Special
 
-	db NORMAL, FLYING ; type
-	db 255 ; catch rate
-	db 55 ; base exp
+; --- Types & Training ---
+	db NORMAL         ; Type 1
+	db FLYING         ; Type 2
+	db 255            ; Catch rate
+	db  55            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/pidgey.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/pidgey.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/pidgey.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/pidgey.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw PidgeyPicFront, PidgeyPicBack
 
-	db TACKLE, SAND_ATTACK, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+	db TACKLE, SAND_ATTACK, NO_MOVE, NO_MOVE       ; Level 1 learnset
+	db GROWTH_MEDIUM_SLOW                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm RAZOR_WIND,   WHIRLWIND,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
-	     RAGE,         MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SWIFT,        SKY_ATTACK,   REST,         SUBSTITUTE,   FLY
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	RAZOR_WIND,   \
+	TOXIC,        \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	RAGE,         \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	SWIFT,        \
+	SKY_ATTACK,   \
+	REST,         \
+	SUBSTITUTE,   \
+	FLY
+; end
 
 	db BANK(PidgeyPicFront)

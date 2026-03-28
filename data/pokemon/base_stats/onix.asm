@@ -1,27 +1,50 @@
-	db DEX_ONIX ; pokedex id
+	db DEX_ONIX       ; Pokedex ID
 
-	db  75,  80, 160, 85,  65
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  75            ; HP
+	db  80            ; Attack
+	db 160            ; Defense
+	db  85            ; Speed
+	db  65            ; Special
 
-	db ROCK, GROUND ; type
-	db 45 ; catch rate
-	db 108 ; base exp
+; --- Types & Training ---
+	db ROCK           ; Type 1
+	db GROUND         ; Type 2
+	db  45            ; Catch rate
+	db 108            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/onix.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/onix.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/onix.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/onix.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw OnixPicFront, OnixPicBack
 
-	db TACKLE, SCREECH, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+	db TACKLE, SCREECH, NO_MOVE, NO_MOVE           ; Level 1 learnset
+	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         \
-	     EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         SELFDESTRUCT, SKULL_BASH,   REST,         EXPLOSION,    \
-	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	TOXIC,        \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	RAGE,         \
+	EARTHQUAKE,   \
+	FISSURE,      \
+	DIG,          \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	BIDE,         \
+	SELFDESTRUCT, \
+	SKULL_BASH,   \
+	REST,         \
+	EXPLOSION,    \
+	ROCK_SLIDE,   \
+	SUBSTITUTE,   \
+	STRENGTH
+; end
 
 	db BANK(OnixPicFront)

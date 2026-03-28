@@ -1,24 +1,32 @@
-	db DEX_METAPOD ; pokedex id
+	db DEX_METAPOD    ; Pokedex ID
 
-	db  50,  20,  55,  30,  25
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  50            ; HP
+	db  20            ; Attack
+	db  55            ; Defense
+	db  30            ; Speed
+	db  25            ; Special
 
-	db BUG, BUG ; type
-	db 120 ; catch rate
-	db 72 ; base exp
+; --- Types & Training ---
+	db BUG            ; Type 1
+	db BUG            ; Type 2
+	db 120            ; Catch rate
+	db  72            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/metapod.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/metapod.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/metapod.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/metapod.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw MetapodPicFront, MetapodPicBack
 
-	db TACKLE, HARDEN, STRING_SHOT, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+	db TACKLE, HARDEN, STRING_SHOT, NO_MOVE        ; Level 1 learnset
+	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
+; --- TM/HM Learnset ---
 	tmhm
-	; end
+; end
 
 	db BANK(MetapodPicFront)

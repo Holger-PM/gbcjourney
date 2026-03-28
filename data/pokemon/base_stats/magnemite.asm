@@ -1,27 +1,48 @@
-	db DEX_MAGNEMITE ; pokedex id
+	db DEX_MAGNEMITE  ; Pokedex ID
 
-	db  25,  35,  70,  45,  95
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  25            ; HP
+	db  35            ; Attack
+	db  70            ; Defense
+	db  45            ; Speed
+	db  95            ; Special
 
-	db ELECTRIC, ELECTRIC ; type
-	db 190 ; catch rate
-	db 89 ; base exp
+; --- Types & Training ---
+	db ELECTRIC       ; Type 1
+	db ELECTRIC       ; Type 2
+	db 190            ; Catch rate
+	db  89            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/magnemite.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/magnemite.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/magnemite.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/magnemite.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw MagnemitePicFront, MagnemitePicBack
 
-	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE           ; Level 1 learnset
+	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         THUNDERBOLT,  \
-	     THUNDER,      TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         SWIFT,        REST,         THUNDER_WAVE, SUBSTITUTE,   \
-	     FLASH
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	TOXIC,        \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	RAGE,         \
+	THUNDERBOLT,  \
+	THUNDER,      \
+	TELEPORT,     \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	SWIFT,        \
+	REST,         \
+	THUNDER_WAVE, \
+	SUBSTITUTE,   \
+	FLASH
+; end
 
 	db BANK(MagnemitePicFront)

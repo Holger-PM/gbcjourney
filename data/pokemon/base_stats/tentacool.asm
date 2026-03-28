@@ -1,27 +1,51 @@
-	db DEX_TENTACOOL ; pokedex id
+	db DEX_TENTACOOL  ; Pokedex ID
 
-	db  40,  40,  35,  70, 100
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  40            ; HP
+	db  40            ; Attack
+	db  35            ; Defense
+	db  70            ; Speed
+	db 100            ; Special
 
-	db WATER, POISON ; type
-	db 190 ; catch rate
-	db 105 ; base exp
+; --- Types & Training ---
+	db WATER          ; Type 1
+	db POISON         ; Type 2
+	db 190            ; Catch rate
+	db 105            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/tentacool.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/tentacool.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/tentacool.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/tentacool.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw TentacoolPicFront, TentacoolPicBack
 
-	db POISON_STING, BUBBLE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_SLOW ; growth rate
+; --- Moves & Growth ---
+	db POISON_STING, BUBBLE, NO_MOVE, NO_MOVE      ; Level 1 learnset
+	db GROWTH_SLOW                                 ; Growth rate
 
-	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     RAGE,         MEGA_DRAIN,   \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SKULL_BASH,   \
-	     REST,         SUBSTITUTE,   CUT,          SURF
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	SWORDS_DANCE, \
+	TOXIC,        \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	BUBBLEBEAM,   \
+	WATER_GUN,    \
+	ICE_BEAM,     \
+	BLIZZARD,     \
+	RAGE,         \
+	MEGA_DRAIN,   \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	SKULL_BASH,   \
+	REST,         \
+	SUBSTITUTE,   \
+	CUT,          \
+	SURF
+; end
 
 	db BANK(TentacoolPicFront)

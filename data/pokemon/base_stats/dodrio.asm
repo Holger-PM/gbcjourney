@@ -1,27 +1,48 @@
-	db DEX_DODRIO ; pokedex id
+	db DEX_DODRIO     ; Pokedex ID
 
-	db  60, 110,  70, 100,  60
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  60            ; HP
+    db 110            ; Attack
+    db  70            ; Defense
+    db 110            ; Speed
+    db  60            ; Special
 
-	db NORMAL, FLYING ; type
-	db 45 ; catch rate
-	db 158 ; base exp
+; --- Types & Training ---
+    db NORMAL         ; Type 1
+    db FLYING         ; Type 2
+    db 45             ; Catch rate
+    db 158            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/dodrio.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/dodrio.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/dodrio.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/dodrio.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw DodrioPicFront, DodrioPicBack
+    dw DodrioPicFront, DodrioPicBack
 
-	db PECK, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+    db PECK, NO_MOVE, NO_MOVE, NO_MOVE             ; Level 1 learnset
+    db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm WHIRLWIND,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     HYPER_BEAM,   RAGE,         MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         SKULL_BASH,   REST,         TRI_ATTACK,                 \
-	     SUBSTITUTE,   FLY
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    HYPER_BEAM,   \
+    RAGE,         \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    SKULL_BASH,   \
+    REST,         \
+    TRI_ATTACK,   \
+    SUBSTITUTE,   \
+    FLY,          \
+    STRENGTH
+; end
 
-	db BANK(DodrioPicFront)
+    db BANK(DodrioPicFront)

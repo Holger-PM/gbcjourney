@@ -1,27 +1,49 @@
-	db DEX_VOLTORB ; pokedex id
+	db DEX_VOLTORB    ; Pokedex ID
 
-	db  40,  30,  50, 100,  55
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  40            ; HP
+	db  30            ; Attack
+	db  50            ; Defense
+	db 100            ; Speed
+	db  55            ; Special
 
-	db ELECTRIC, ELECTRIC ; type
-	db 190 ; catch rate
-	db 103 ; base exp
+; --- Types & Training ---
+	db ELECTRIC       ; Type 1
+	db ELECTRIC       ; Type 2
+	db 190            ; Catch rate
+	db 103            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/voltorb.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/voltorb.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/voltorb.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/voltorb.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw VoltorbPicFront, VoltorbPicBack
 
-	db TACKLE, SCREECH, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+	db TACKLE, SCREECH, NO_MOVE, NO_MOVE           ; Level 1 learnset
+	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,        TAKE_DOWN,    RAGE,         THUNDERBOLT,  THUNDER,      \
-	     TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SELFDESTRUCT, SWIFT,        REST,         THUNDER_WAVE, EXPLOSION,    \
-	     SUBSTITUTE,   FLASH
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	TOXIC,        \
+	TAKE_DOWN,    \
+	RAGE,         \
+	THUNDERBOLT,  \
+	THUNDER,      \
+	TELEPORT,     \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	SELFDESTRUCT, \
+	SWIFT,        \
+	REST,         \
+	THUNDER_WAVE, \
+	EXPLOSION,    \
+	SUBSTITUTE,   \
+	FLASH
+; end
 
 	db BANK(VoltorbPicFront)

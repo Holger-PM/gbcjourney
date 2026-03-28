@@ -1,28 +1,55 @@
-	db DEX_GEODUDE ; pokedex id
+	db DEX_GEODUDE    ; Pokedex ID
 
-	db  40,  80, 100,  20,  30
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  40            ; HP
+    db  80            ; Attack
+    db 100            ; Defense
+    db  20            ; Speed
+    db  30            ; Special
 
-	db ROCK, GROUND ; type
-	db 255 ; catch rate
-	db 86 ; base exp
+; --- Types & Training ---
+    db ROCK           ; Type 1
+    db GROUND         ; Type 2
+    db 255            ; Catch rate
+    db  86            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/geodude.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/geodude.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/geodude.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/geodude.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw GeodudePicFront, GeodudePicBack
+    dw GeodudePicFront, GeodudePicBack
 
-	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+    db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE           ; Level 1 learnset
+    db GROWTH_MEDIUM_SLOW                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm MEGA_PUNCH,   TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         EARTHQUAKE,   \
-	     FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     METRONOME,    SELFDESTRUCT, FIRE_BLAST,   REST,         EXPLOSION,    \
-	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    MEGA_PUNCH,   \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    SUBMISSION,   \
+    COUNTER,      \
+    SEISMIC_TOSS, \
+    RAGE,         \
+    EARTHQUAKE,   \
+    FISSURE,      \
+    DIG,          \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    BIDE,         \
+    METRONOME,    \
+    SELFDESTRUCT, \
+    FIRE_BLAST,   \
+    REST,         \
+    EXPLOSION,    \
+    ROCK_SLIDE,   \
+    SUBSTITUTE,   \
+    STRENGTH
+; end
 
-	db BANK(GeodudePicFront)
+    db BANK(GeodudePicFront)

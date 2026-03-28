@@ -1,28 +1,57 @@
-	db DEX_DROWZEE ; pokedex id
+	db DEX_DROWZEE    ; Pokedex ID
 
-	db  60,  48,  45,  42,  90
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  60            ; HP
+    db  48            ; Attack
+    db  45            ; Defense
+    db  42            ; Speed
+    db  90            ; Special
 
-	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type
-	db 190 ; catch rate
-	db 102 ; base exp
+; --- Types & Training ---
+    db PSYCHIC_TYPE   ; Type 1
+    db PSYCHIC_TYPE   ; Type 2
+    db 190            ; Catch rate
+    db 102            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/drowzee.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/drowzee.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/drowzee.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/drowzee.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw DrowzeePicFront, DrowzeePicBack
+    dw DrowzeePicFront, DrowzeePicBack
 
-	db POUND, HYPNOSIS, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+    db POUND, HYPNOSIS, NO_MOVE, NO_MOVE           ; Level 1 learnset
+    db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         \
-	     PSYCHIC_M,    TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         METRONOME,    SKULL_BASH,   DREAM_EATER,  REST,         \
-	     THUNDER_WAVE, PSYWAVE,      TRI_ATTACK,   SUBSTITUTE,   FLASH
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    MEGA_PUNCH,   \
+    MEGA_KICK,    \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    SUBMISSION,   \
+    COUNTER,      \
+    SEISMIC_TOSS, \
+    RAGE,         \
+    PSYCHIC_M,    \
+    TELEPORT,     \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    METRONOME,    \
+    SKULL_BASH,   \
+    DREAM_EATER,  \
+    REST,         \
+    THUNDER_WAVE, \
+    PSYWAVE,      \
+    TRI_ATTACK,   \
+    SUBSTITUTE,   \
+    FLASH
+; end
 
-	db BANK(DrowzeePicFront)
+    db BANK(DrowzeePicFront)

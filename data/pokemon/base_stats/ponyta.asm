@@ -1,26 +1,48 @@
-	db DEX_PONYTA ; pokedex id
+	db DEX_PONYTA      ; Pokedex ID
 
-	db  50,  85,  55, 100,  65
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  50             ; HP
+	db  85             ; Attack
+	db  55             ; Defense
+	db 100             ; Speed
+	db  65             ; Special
 
-	db FIRE, FIRE ; type
-	db 190 ; catch rate
-	db 152 ; base exp
+; --- Types & Training ---
+	db FIRE            ; Type 1
+	db FIRE            ; Type 2
+	db 190             ; Catch rate
+	db 152             ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/ponyta.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/ponyta.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/ponyta.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/ponyta.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw PonytaPicFront, PonytaPicBack
 
-	db EMBER, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+	db EMBER, NO_MOVE, NO_MOVE, NO_MOVE            ; Level 1 learnset
+	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,  HORN_DRILL, BODY_SLAM, TAKE_DOWN, DOUBLE_EDGE,  SUBSTITUTE, \
-	     RAGE,         MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     FIRE_BLAST,   SWIFT,        SKULL_BASH,   REST,         FLAMETHROWER
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	TOXIC,        \
+	HORN_DRILL,   \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	SUBSTITUTE,   \
+	RAGE,         \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	FIRE_BLAST,   \
+	SWIFT,        \
+	SKULL_BASH,   \
+	REST,         \
+	FLAMETHROWER
+; end
 
 	db BANK(PonytaPicFront)

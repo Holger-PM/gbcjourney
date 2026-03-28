@@ -1,28 +1,57 @@
-	db DEX_KABUTOPS ; pokedex id
+	db DEX_KABUTOPS   ; Pokedex ID
 
-	db  60, 115, 105,  80,  70
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  60            ; HP
+    db 115            ; Attack
+    db 105            ; Defense
+    db  80            ; Speed
+    db  70            ; Special
 
-	db ROCK, WATER ; type
-	db 45 ; catch rate
-	db 201 ; base exp
+; --- Types & Training ---
+    db ROCK           ; Type 1
+    db WATER          ; Type 2
+    db  45            ; Catch rate
+    db 201            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/kabutops.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/kabutops.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/kabutops.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/kabutops.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw KabutopsPicFront, KabutopsPicBack
+    dw KabutopsPicFront, KabutopsPicBack
 
-	db SCRATCH, HARDEN, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+    db SCRATCH, HARDEN, NO_MOVE, NO_MOVE           ; Level 1 learnset
+    db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm RAZOR_WIND,   SWORDS_DANCE, MEGA_KICK,    TOXIC,        BODY_SLAM,    \
-	     TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     \
-	     BLIZZARD,     HYPER_BEAM,   SUBMISSION,   SEISMIC_TOSS, RAGE,         \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SKULL_BASH,   \
-	     REST,         SUBSTITUTE,   ROCK_SLIDE,   CUT,          SURF
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    RAZOR_WIND,   \
+    SWORDS_DANCE, \
+    MEGA_KICK,    \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    BUBBLEBEAM,   \
+    WATER_GUN,    \
+    ICE_BEAM,     \
+    BLIZZARD,     \
+    HYPER_BEAM,   \
+    SUBMISSION,   \
+    SEISMIC_TOSS, \
+    RAGE,         \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    SKULL_BASH,   \
+    REST,         \
+    SUBSTITUTE,   \
+    ROCK_SLIDE,   \
+    CUT,          \
+    SURF
+; end
 
-	db BANK(KabutopsPicFront)
+    db BANK(KabutopsPicFront)

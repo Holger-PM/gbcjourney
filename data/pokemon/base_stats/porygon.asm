@@ -1,28 +1,55 @@
-	db DEX_PORYGON ; pokedex id
+	db DEX_PORYGON    ; Pokedex ID
 
-	db  75,  70,  70,  40,  95
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  75            ; HP
+	db  70            ; Attack
+	db  70            ; Defense
+	db  40            ; Speed
+	db  95            ; Special
 
-	db NORMAL, NORMAL ; type
-	db 45 ; catch rate
-	db 130 ; base exp
+; --- Types & Training ---
+	db NORMAL         ; Type 1
+	db NORMAL         ; Type 2
+	db  45            ; Catch rate
+	db 130            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/porygon.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/porygon.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/porygon.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/porygon.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw PorygonPicFront, PorygonPicBack
 
-	db TACKLE, CONVERSION, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+	db TACKLE, CONVERSION, NO_MOVE, NO_MOVE        ; Level 1 learnset
+	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  ICE_BEAM,     BLIZZARD,     \
-	     HYPER_BEAM,   RAGE,         THUNDERBOLT,  THUNDER,      PSYCHIC_M,    \
-	     TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SWIFT,        SKULL_BASH,   REST,         THUNDER_WAVE, PSYWAVE,      \
-	     TRI_ATTACK,   SUBSTITUTE,   FLASH
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	TOXIC,        \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	ICE_BEAM,     \
+	BLIZZARD,     \
+	HYPER_BEAM,   \
+	RAGE,         \
+	THUNDERBOLT,  \
+	THUNDER,      \
+	PSYCHIC_M,    \
+	TELEPORT,     \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	SWIFT,        \
+	SKULL_BASH,   \
+	REST,         \
+	THUNDER_WAVE, \
+	PSYWAVE,      \
+	TRI_ATTACK,   \
+	SUBSTITUTE,   \
+	FLASH
+; end
 
 	db BANK(PorygonPicFront)

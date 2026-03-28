@@ -1,28 +1,52 @@
-	db DEX_AERODACTYL ; pokedex id
+db DEX_AERODACTYL ; Pokedex ID
 
-	db  80, 105,  65, 130,  60
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db 80             ; HP
+    db 105            ; Attack
+    db 65             ; Defense
+    db 130            ; Speed
+    db 60             ; Special
 
-	db ROCK, FLYING ; type
-	db 45 ; catch rate
-	db 202 ; base exp
+; --- Types & Training ---
+    db ROCK           ; Type 1
+    db FLYING         ; Type 2
+    db 45             ; Catch rate
+    db 202            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/aerodactyl.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/aerodactyl.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/aerodactyl.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/aerodactyl.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw AerodactylPicFront, AerodactylPicBack
+    dw AerodactylPicFront, AerodactylPicBack
 
-	db WING_ATTACK, AGILITY, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_SLOW ; growth rate
+; --- Moves & Growth ---
+    db WING_ATTACK, AGILITY, NO_MOVE, NO_MOVE         ; Level 1 learnset
+    db GROWTH_SLOW                                    ; Growth rate
 
-	; tm/hm learnset
-	tmhm RAZOR_WIND,   TOXIC,        TAKE_DOWN,    DOUBLE_EDGE, ROCK_SLIDE,  \
-	     HYPER_BEAM,   RAGE,         DRAGON_RAGE,  EARTHQUAKE, MIMIC,        \
-	     DOUBLE_TEAM, REFLECT,      BIDE,         FIRE_BLAST,   SWIFT,       \
-             SKY_ATTACK,  REST,     SUBSTITUTE,       FLY, WHIRLWIND,            \
-	     FLAMETHROWER
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    RAZOR_WIND,   \
+    TOXIC,        \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    ROCK_SLIDE,   \
+    HYPER_BEAM,   \
+    RAGE,         \
+    DRAGON_RAGE,  \
+    EARTHQUAKE,   \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    FIRE_BLAST,   \
+    SWIFT,        \
+    SKY_ATTACK,   \
+    REST,         \
+    SUBSTITUTE,   \
+    FLY,          \
+    FLAMETHROWER
+; end
 
-	db BANK(AerodactylPicFront)
+    db BANK(AerodactylPicFront)

@@ -1,28 +1,55 @@
-	db DEX_SQUIRTLE ; pokedex id
+	db DEX_SQUIRTLE   ; Pokedex ID
 
-	db  44,  48,  65,  43,  50
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  44            ; HP
+	db  48            ; Attack
+	db  65            ; Defense
+	db  43            ; Speed
+	db  50            ; Special
 
-	db WATER, WATER ; type
-	db 45 ; catch rate
-	db 66 ; base exp
+; --- Types & Training ---
+	db WATER          ; Type 1
+	db WATER          ; Type 2
+	db  45            ; Catch rate
+	db  66            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/squirtle.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/squirtle.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/squirtle.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/squirtle.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw SquirtlePicFront, SquirtlePicBack
 
-	db TACKLE, TAIL_WHIP, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+	db TACKLE, TAIL_WHIP, NO_MOVE, NO_MOVE          ; Level 1 learnset
+	db GROWTH_MEDIUM_SLOW                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         DIG,          \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SKULL_BASH,   \
-	     REST,         SUBSTITUTE,   SURF,         STRENGTH
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	MEGA_PUNCH,   \
+	MEGA_KICK,    \
+	TOXIC,        \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	BUBBLEBEAM,   \
+	WATER_GUN,    \
+	ICE_BEAM,     \
+	BLIZZARD,     \
+	SUBMISSION,   \
+	COUNTER,      \
+	SEISMIC_TOSS, \
+	RAGE,         \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	SKULL_BASH,   \
+	REST,         \
+	SUBSTITUTE,   \
+	SURF,         \
+	STRENGTH
+; end
 
 	db BANK(SquirtlePicFront)

@@ -1,26 +1,46 @@
-	db DEX_PIDGEOTTO ; pokedex id
+	db DEX_PIDGEOTTO  ; Pokedex ID
 
-	db  63,  60,  55,  71,  50
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  63            ; HP
+	db  60            ; Attack
+	db  55            ; Defense
+	db  71            ; Speed
+	db  50            ; Special
 
-	db NORMAL, FLYING ; type
-	db 120 ; catch rate
-	db 113 ; base exp
+; --- Types & Training ---
+	db NORMAL         ; Type 1
+	db FLYING         ; Type 2
+	db 120            ; Catch rate
+	db 113            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/pidgeotto.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/pidgeotto.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/pidgeotto.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/pidgeotto.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw PidgeottoPicFront, PidgeottoPicBack
 
-	db GUST, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+	db GUST, NO_MOVE, NO_MOVE, NO_MOVE             ; Level 1 learnset
+	db GROWTH_MEDIUM_SLOW                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm RAZOR_WIND,   WHIRLWIND,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
-	     RAGE,         MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SWIFT,        SKY_ATTACK,   REST,         SUBSTITUTE,   FLY
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	RAZOR_WIND,   \
+	TOXIC,        \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	RAGE,         \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	SWIFT,        \
+	SKY_ATTACK,   \
+	REST,         \
+	SUBSTITUTE,   \
+	FLY
+; end
 
 	db BANK(PidgeottoPicFront)

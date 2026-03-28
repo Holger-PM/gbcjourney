@@ -1,28 +1,55 @@
-	db DEX_MACHOKE ; pokedex id
+	db DEX_MACHOKE    ; Pokedex ID
 
-	db  80, 100,  70,  45,  50
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  80            ; HP
+	db 100            ; Attack
+	db  70            ; Defense
+	db  45            ; Speed
+	db  50            ; Special
 
-	db FIGHTING, FIGHTING ; type
-	db 90 ; catch rate
-	db 146 ; base exp
+; --- Types & Training ---
+	db FIGHTING       ; Type 1
+	db FIGHTING       ; Type 2
+	db  90            ; Catch rate
+	db 146            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/machoke.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/machoke.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/machoke.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/machoke.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw MachokePicFront, MachokePicBack
 
-	db KARATE_CHOP, LOW_KICK, LEER, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+	db KARATE_CHOP, LOW_KICK, LEER, NO_MOVE        ; Level 1 learnset
+	db GROWTH_MEDIUM_SLOW                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         \
-	     EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         METRONOME,    FIRE_BLAST,   SKULL_BASH,   REST,         \
-	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	MEGA_PUNCH,   \
+	MEGA_KICK,    \
+	TOXIC,        \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	SUBMISSION,   \
+	COUNTER,      \
+	SEISMIC_TOSS, \
+	RAGE,         \
+	EARTHQUAKE,   \
+	FISSURE,      \
+	DIG,          \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	BIDE,         \
+	METRONOME,    \
+	FIRE_BLAST,   \
+	SKULL_BASH,   \
+	REST,         \
+	ROCK_SLIDE,   \
+	SUBSTITUTE,   \
+	STRENGTH
+; end
 
 	db BANK(MachokePicFront)

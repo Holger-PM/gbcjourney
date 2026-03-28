@@ -1,27 +1,49 @@
-	db DEX_GROWLITHE ; pokedex id
+	db DEX_GROWLITHE  ; Pokedex ID
 
-	db  55,  70,  45,  60,  50
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  55            ; HP
+    db  70            ; Attack
+    db  45            ; Defense
+    db  60            ; Speed
+    db  50            ; Special
 
-	db FIRE, FIRE ; type
-	db 190 ; catch rate
-	db 91 ; base exp
+; --- Types & Training ---
+    db FIRE           ; Type 1
+    db FIRE           ; Type 2
+    db 190            ; Catch rate
+    db  91            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/growlithe.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/growlithe.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/growlithe.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/growlithe.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw GrowlithePicFront, GrowlithePicBack
+    dw GrowlithePicFront, GrowlithePicBack
 
-	db BITE, ROAR, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_SLOW ; growth rate
+; --- Moves & Growth ---
+    db BITE, ROAR, NO_MOVE, NO_MOVE                ; Level 1 learnset
+    db GROWTH_SLOW                                 ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC, BODY_SLAM, TAKE_DOWN, DOUBLE_EDGE,  RAGE,       SUBSTITUTE, \
-	     DRAGON_RAGE,  DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         FIRE_BLAST,   SWIFT,        SKULL_BASH,   REST,         \
-	    FLAMETHROWER
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    RAGE,         \
+    SUBSTITUTE,   \
+    DRAGON_RAGE,  \
+    DIG,          \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    FIRE_BLAST,   \
+    SWIFT,        \
+    SKULL_BASH,   \
+    REST,         \
+    FLAMETHROWER
+; end
 
-	db BANK(GrowlithePicFront)
+    db BANK(GrowlithePicFront)

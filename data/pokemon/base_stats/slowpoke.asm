@@ -1,29 +1,62 @@
-	db DEX_SLOWPOKE ; pokedex id
+	db DEX_SLOWPOKE   ; Pokedex ID
 
-	db  90,  65,  65,  15,  40
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  90            ; HP
+	db  65            ; Attack
+	db  65            ; Defense
+	db  15            ; Speed
+	db  40            ; Special
 
-	db WATER, PSYCHIC_TYPE ; type
-	db 190 ; catch rate
-	db 99 ; base exp
+; --- Types & Training ---
+	db WATER          ; Type 1
+	db PSYCHIC_TYPE   ; Type 2
+	db 190            ; Catch rate
+	db  99            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/slowpoke.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/slowpoke.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/slowpoke.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/slowpoke.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw SlowpokePicFront, SlowpokePicBack
 
-	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE            ; Level 1 learnset
+	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     PAY_DAY,      RAGE,         \
-	     EARTHQUAKE,   FISSURE,      DIG,          PSYCHIC_M,    TELEPORT,     \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         FIRE_BLAST,   \
-	     SWIFT,        SKULL_BASH,   REST,         THUNDER_WAVE, PSYWAVE,      \
-	     TRI_ATTACK,   SUBSTITUTE,   SURF,         STRENGTH,     FLASH
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	TOXIC,        \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	BUBBLEBEAM,   \
+	WATER_GUN,    \
+	ICE_BEAM,     \
+	BLIZZARD,     \
+	PAY_DAY,      \
+	RAGE,         \
+	EARTHQUAKE,   \
+	FISSURE,      \
+	DIG,          \
+	PSYCHIC_M,    \
+	TELEPORT,     \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	FIRE_BLAST,   \
+	SWIFT,        \
+	SKULL_BASH,   \
+	REST,         \
+	THUNDER_WAVE, \
+	PSYWAVE,      \
+	TRI_ATTACK,   \
+	SUBSTITUTE,   \
+	SURF,         \
+	STRENGTH,     \
+	FLASH
+; end
 
 	db BANK(SlowpokePicFront)

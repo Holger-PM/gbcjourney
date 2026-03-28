@@ -1,27 +1,49 @@
-	db DEX_RAPIDASH ; pokedex id
+	db DEX_RAPIDASH   ; Pokedex ID
 
-	db  65, 100,  70, 115,  80
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  65            ; HP
+	db 100            ; Attack
+	db  70            ; Defense
+	db 115            ; Speed
+	db  80            ; Special
 
-	db FIRE, FIRE ; type
-	db 60 ; catch rate
-	db 192 ; base exp
+; --- Types & Training ---
+	db FIRE            ; Type 1
+	db FIRE            ; Type 2
+	db  60            ; Catch rate
+	db 192            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/rapidash.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/rapidash.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/rapidash.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/rapidash.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw RapidashPicFront, RapidashPicBack
 
-	db EMBER, TAIL_WHIP, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+	db EMBER, TAIL_WHIP, NO_MOVE, NO_MOVE          ; Level 1 learnset
+	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC, HORN_DRILL, BODY_SLAM, TAKE_DOWN,  DOUBLE_EDGE,  REST,\
-	     HYPER_BEAM,   RAGE,         MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         FIRE_BLAST,   SWIFT,        SKULL_BASH,    SUBSTITUTE,         \
-	     FLAMETHROWER
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	TOXIC,        \
+	HORN_DRILL,   \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	HYPER_BEAM,   \
+	RAGE,         \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	FIRE_BLAST,   \
+	SWIFT,        \
+	SKULL_BASH,   \
+	REST,         \
+	SUBSTITUTE,   \
+	FLAMETHROWER
+; end
 
 	db BANK(RapidashPicFront)

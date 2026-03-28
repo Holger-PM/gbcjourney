@@ -1,28 +1,56 @@
-	db DEX_WARTORTLE ; pokedex id
+	db DEX_WARTORTLE  ; Pokedex ID
 
-	db  59,  63,  80,  58,  65
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  59            ; HP
+	db  63            ; Attack
+	db  80            ; Defense
+	db  58            ; Speed
+	db  65            ; Special
 
-	db WATER, WATER ; type
-	db 45 ; catch rate
-	db 143 ; base exp
+; --- Types & Training ---
+	db WATER          ; Type 1
+	db WATER          ; Type 2
+	db  45            ; Catch rate
+	db 143            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/wartortle.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/wartortle.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/wartortle.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/wartortle.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw WartortlePicFront, WartortlePicBack
 
-	db TACKLE, TAIL_WHIP, BUBBLE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+	db TACKLE, TAIL_WHIP, BUBBLE, NO_MOVE          ; Level 1 learnset
+	db GROWTH_MEDIUM_SLOW                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         DIG,          \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SKULL_BASH,   \
-	     REST,         SUBSTITUTE,   SURF,         STRENGTH
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	MEGA_PUNCH,   \
+	MEGA_KICK,    \
+	TOXIC,        \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	BUBBLEBEAM,   \
+	WATER_GUN,    \
+	ICE_BEAM,     \
+	BLIZZARD,     \
+	SUBMISSION,   \
+	COUNTER,      \
+	SEISMIC_TOSS, \
+	RAGE,         \
+	DIG,          \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	SKULL_BASH,   \
+	REST,         \
+	SUBSTITUTE,   \
+	SURF,         \
+	STRENGTH
+; end
 
 	db BANK(WartortlePicFront)

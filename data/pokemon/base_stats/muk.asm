@@ -1,26 +1,48 @@
-	db DEX_MUK ; pokedex id
+	db DEX_MUK        ; Pokedex ID
 
-	db 105, 105,  75,  50,  85
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db 105            ; HP
+	db 105            ; Attack
+	db  75            ; Defense
+	db  50            ; Speed
+	db  85            ; Special
 
-	db POISON, POISON ; type
-	db 75 ; catch rate
-	db 157 ; base exp
+; --- Types & Training ---
+	db POISON         ; Type 1
+	db POISON         ; Type 2
+	db  75            ; Catch rate
+	db 157            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/muk.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/muk.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/muk.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/muk.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw MukPicFront, MukPicBack
 
-	db POUND, DISABLE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+	db POUND, DISABLE, NO_MOVE, NO_MOVE            ; Level 1 learnset
+	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC, BODY_SLAM,   HYPER_BEAM,   RAGE,   MEGA_DRAIN,   BIDE,\
-	     THUNDERBOLT,  THUNDER,      MIMIC,        DOUBLE_TEAM,  REST,         \
-	     SELFDESTRUCT, FIRE_BLAST,   EXPLOSION,    SUBSTITUTE,  FLAMETHROWER
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	TOXIC,        \
+	BODY_SLAM,    \
+	HYPER_BEAM,   \
+	RAGE,         \
+	MEGA_DRAIN,   \
+	THUNDERBOLT,  \
+	THUNDER,      \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	BIDE,         \
+	SELFDESTRUCT, \
+	FIRE_BLAST,   \
+	EXPLOSION,    \
+	REST,         \
+	SUBSTITUTE,   \
+	FLAMETHROWER
+; end
 
 	db BANK(MukPicFront)

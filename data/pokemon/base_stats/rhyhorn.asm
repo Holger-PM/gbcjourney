@@ -1,27 +1,53 @@
-	db DEX_RHYHORN ; pokedex id
+	db DEX_RHYHORN    ; Pokedex ID
 
-	db  80,  85,  95,  25,  30
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  80            ; HP
+	db  85            ; Attack
+	db  95            ; Defense
+	db  25            ; Speed
+	db  30            ; Special
 
-	db GROUND, ROCK ; type
-	db 120 ; catch rate
-	db 135 ; base exp
+; --- Types & Training ---
+	db GROUND         ; Type 1
+	db ROCK           ; Type 2
+	db 120            ; Catch rate
+	db 135            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/rhyhorn.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/rhyhorn.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/rhyhorn.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/rhyhorn.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw RhyhornPicFront, RhyhornPicBack
 
-	db HORN_ATTACK, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_SLOW ; growth rate
+; --- Moves & Growth ---
+	db HORN_ATTACK, NO_MOVE, NO_MOVE, NO_MOVE      ; Level 1 learnset
+	db GROWTH_SLOW                                 ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,   HORN_DRILL, BODY_SLAM, TAKE_DOWN,  DOUBLE_EDGE, REST,  \
-	     RAGE,         THUNDERBOLT,  THUNDER,      EARTHQUAKE,   FISSURE,      \
-	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         FIRE_BLAST,   \
-	     SKULL_BASH,   ROCK_SLIDE,   SUBSTITUTE,   STRENGTH,     FLAMETHROWER
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	TOXIC,        \
+	HORN_DRILL,   \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	RAGE,         \
+	THUNDERBOLT,  \
+	THUNDER,      \
+	EARTHQUAKE,   \
+	FISSURE,      \
+	DIG,          \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	BIDE,         \
+	FIRE_BLAST,   \
+	SKULL_BASH,   \
+	REST,         \
+	ROCK_SLIDE,   \
+	SUBSTITUTE,   \
+	STRENGTH,     \
+	FLAMETHROWER
+; end
 
 	db BANK(RhyhornPicFront)

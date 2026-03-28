@@ -1,26 +1,46 @@
-	db DEX_GLOOM ; pokedex id
+	db DEX_GLOOM      ; Pokedex ID
+ 
+; --- Base Stats ---
+    db  70            ; HP
+    db  65            ; Attack
+    db  70            ; Defense
+    db  40            ; Speed
+    db  85            ; Special
 
-	db  70,  65,  70,  40,  85
-	;   hp  atk  def  spd  spc
+; --- Types & Training ---
+    db GRASS          ; Type 1
+    db POISON         ; Type 2
+    db 120            ; Catch rate
+    db 132            ; Base exp yield
 
-	db GRASS, POISON ; type
-	db 120 ; catch rate
-	db 132 ; base exp
-
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/gloom.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/gloom.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/gloom.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/gloom.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw GloomPicFront, GloomPicBack
+    dw GloomPicFront, GloomPicBack
 
-	db TACKLE, STUN_SPORE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+    db TACKLE, STUN_SPORE, NO_MOVE, NO_MOVE        ; Level 1 learnset
+    db GROWTH_MEDIUM_SLOW                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         \
-	     MEGA_DRAIN,   SOLARBEAM,    MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         REST,         SUBSTITUTE,   CUT
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    SWORDS_DANCE, \
+    TOXIC,        \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    RAGE,         \
+    MEGA_DRAIN,   \
+    SOLARBEAM,    \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    REST,         \
+    SUBSTITUTE,   \
+    CUT
+; end
 
-	db BANK(GloomPicFront)
+    db BANK(GloomPicFront)

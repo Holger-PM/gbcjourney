@@ -1,30 +1,67 @@
-	db DEX_CLEFAIRY ; pokedex id
+	db DEX_CLEFAIRY   ; Pokedex ID
 
-	db  70,  45,  48,  35,  60
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db 70             ; HP
+    db 45             ; Attack
+    db 48             ; Defense
+    db 35             ; Speed
+    db 60             ; Special
 
-	db NORMAL, NORMAL ; type
-	db 150 ; catch rate
-	db 68 ; base exp
+; --- Types & Training ---
+    db NORMAL         ; Type 1
+    db NORMAL         ; Type 2
+    db 150            ; Catch rate
+    db 68             ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/clefairy.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/clefairy.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/clefairy.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/clefairy.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw ClefairyPicFront, ClefairyPicBack
+    dw ClefairyPicFront, ClefairyPicBack
 
-	db POUND, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_FAST ; growth rate
+; --- Moves & Growth ---
+    db POUND, GROWL, NO_MOVE, NO_MOVE               ; Level 1 learnset
+    db GROWTH_FAST                                 ; Growth rate
 
-	; tm/hm learnset
-	tmhm MEGA_PUNCH,  MEGA_KICK, TOXIC, BODY_SLAM,  TAKE_DOWN,   SOFTBOILED,    \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         SOLARBEAM,    \
-	     THUNDERBOLT,  THUNDER,      PSYCHIC_M,    TELEPORT,     MIMIC,        \
-	     DOUBLE_TEAM,  REFLECT,      BIDE,         METRONOME,    FIRE_BLAST,   \
-	     SKULL_BASH,   REST,         THUNDER_WAVE, PSYWAVE,      TRI_ATTACK,   \
-	     SUBSTITUTE,   STRENGTH,     FLASH,        FLAMETHROWER
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    MEGA_PUNCH,   \
+    MEGA_KICK,    \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    SOFTBOILED,   \
+    DOUBLE_EDGE,  \
+    BUBBLEBEAM,   \
+    WATER_GUN,    \
+    ICE_BEAM,     \
+    BLIZZARD,     \
+    SUBMISSION,   \
+    COUNTER,      \
+    SEISMIC_TOSS, \
+    RAGE,         \
+    SOLARBEAM,    \
+    THUNDERBOLT,  \
+    THUNDER,      \
+    PSYCHIC_M,    \
+    TELEPORT,     \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    METRONOME,    \
+    FIRE_BLAST,   \
+    SKULL_BASH,   \
+    REST,         \
+    THUNDER_WAVE, \
+    PSYWAVE,      \
+    TRI_ATTACK,   \
+    SUBSTITUTE,   \
+    STRENGTH,     \
+    FLASH,        \
+    FLAMETHROWER
+; end
 
-	db BANK(ClefairyPicFront)
+    db BANK(ClefairyPicFront)

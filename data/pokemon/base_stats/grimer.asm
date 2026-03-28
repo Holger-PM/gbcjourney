@@ -1,26 +1,46 @@
-	db DEX_GRIMER ; pokedex id
+	db DEX_GRIMER     ; Pokedex ID
 
-	db  80,  80,  50,  25,  40
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  80            ; HP
+    db  80            ; Attack
+    db  50            ; Defense
+    db  25            ; Speed
+    db  40            ; Special
 
-	db POISON, POISON ; type
-	db 190 ; catch rate
-	db 90 ; base exp
+; --- Types & Training ---
+    db POISON         ; Type 1
+    db POISON         ; Type 2
+    db 190            ; Catch rate
+    db  90            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/grimer.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/grimer.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/grimer.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/grimer.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw GrimerPicFront, GrimerPicBack
+    dw GrimerPicFront, GrimerPicBack
 
-	db POUND, DISABLE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+    db POUND, DISABLE, NO_MOVE, NO_MOVE            ; Level 1 learnset
+    db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC, BODY_SLAM,   RAGE,   MEGA_DRAIN,   THUNDERBOLT,  REST,        \
-	     THUNDER,      MIMIC,        DOUBLE_TEAM,  BIDE,         SELFDESTRUCT, \
-	     FIRE_BLAST,   EXPLOSION,    SUBSTITUTE
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    TOXIC,        \
+    BODY_SLAM,    \
+    RAGE,         \
+    MEGA_DRAIN,   \
+    THUNDERBOLT,  \
+    REST,         \
+    THUNDER,      \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    BIDE,         \
+    SELFDESTRUCT, \
+    FIRE_BLAST,   \
+    EXPLOSION,    \
+    SUBSTITUTE
+; end
 
-	db BANK(GrimerPicFront)
+    db BANK(GrimerPicFront)

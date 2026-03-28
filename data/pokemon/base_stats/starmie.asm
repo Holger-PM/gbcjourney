@@ -1,29 +1,58 @@
-	db DEX_STARMIE ; pokedex id
+	db DEX_STARMIE    ; Pokedex ID
 
-	db  60,  75,  85, 115, 100
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  60            ; HP
+	db  75            ; Attack
+	db  85            ; Defense
+	db 115            ; Speed
+	db 100            ; Special
 
-	db WATER, PSYCHIC_TYPE ; type
-	db 60 ; catch rate
-	db 207 ; base exp
+; --- Types & Training ---
+	db WATER          ; Type 1
+	db PSYCHIC_TYPE   ; Type 2
+	db  60            ; Catch rate
+	db 207            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/starmie.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/starmie.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/starmie.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/starmie.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw StarmiePicFront, StarmiePicBack
 
-	db CONFUSION, SWIFT, BUBBLEBEAM, NO_MOVE ; level 1 learnset
-	db GROWTH_SLOW ; growth rate
+; --- Moves & Growth ---
+	db CONFUSION, SWIFT, BUBBLEBEAM, NO_MOVE        ; Level 1 learnset
+	db GROWTH_SLOW                                 ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    \
-	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         THUNDERBOLT,  \
-	     THUNDER,      PSYCHIC_M,    TELEPORT,     MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         SWIFT,        SKULL_BASH,   REST,         \
-	     THUNDER_WAVE, PSYWAVE,      TRI_ATTACK,   SUBSTITUTE,   SURF,         \
-	     FLASH
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	TOXIC,        \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	BUBBLEBEAM,   \
+	WATER_GUN,    \
+	ICE_BEAM,     \
+	BLIZZARD,     \
+	HYPER_BEAM,   \
+	RAGE,         \
+	THUNDERBOLT,  \
+	THUNDER,      \
+	PSYCHIC_M,    \
+	TELEPORT,     \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	SWIFT,        \
+	SKULL_BASH,   \
+	REST,         \
+	THUNDER_WAVE, \
+	PSYWAVE,      \
+	TRI_ATTACK,   \
+	SUBSTITUTE,   \
+	SURF,         \
+	FLASH
+; end
 
 	db BANK(StarmiePicFront)

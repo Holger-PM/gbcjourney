@@ -1,26 +1,47 @@
-	db DEX_IVYSAUR ; pokedex id
+	db DEX_IVYSAUR    ; Pokedex ID
 
-	db  60,  62,  63,  60,  80
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  60            ; HP
+    db  62            ; Attack
+    db  63            ; Defense
+    db  60            ; Speed
+    db  80            ; Special
 
-	db GRASS, POISON ; type
-	db 45 ; catch rate
-	db 141 ; base exp
+; --- Types & Training ---
+    db GRASS          ; Type 1
+    db POISON         ; Type 2
+    db  45            ; Catch rate
+    db 141            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/ivysaur.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/ivysaur.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/ivysaur.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/ivysaur.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw IvysaurPicFront, IvysaurPicBack
+    dw IvysaurPicFront, IvysaurPicBack
 
-	db TACKLE, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+    db TACKLE, GROWL, NO_MOVE, NO_MOVE             ; Level 1 learnset
+    db GROWTH_MEDIUM_SLOW                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     RAGE,         MEGA_DRAIN,   SOLARBEAM,    MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         REST,         SUBSTITUTE,   CUT
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    SWORDS_DANCE, \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    RAGE,         \
+    MEGA_DRAIN,   \
+    SOLARBEAM,    \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    REST,         \
+    SUBSTITUTE,   \
+    CUT
+; end
 
-	db BANK(IvysaurPicFront)
+    db BANK(IvysaurPicFront)

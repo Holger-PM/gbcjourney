@@ -1,29 +1,60 @@
-	db DEX_ELECTABUZZ ; pokedex id
+	db DEX_ELECTABUZZ ; Pokedex ID
 
-	db  65,  83,  57, 105,  85
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  65            ; HP
+    db  83            ; Attack
+    db  57            ; Defense
+    db 105            ; Speed
+    db  85            ; Special
 
-	db ELECTRIC, ELECTRIC ; type
-	db 45 ; catch rate
-	db 156 ; base exp
+; --- Types & Training ---
+    db ELECTRIC       ; Type 1
+    db ELECTRIC       ; Type 2
+    db  45            ; Catch rate
+    db 156            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/electabuzz.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/electabuzz.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/electabuzz.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/electabuzz.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw ElectabuzzPicFront, ElectabuzzPicBack
+    dw ElectabuzzPicFront, ElectabuzzPicBack
 
-	db QUICK_ATTACK, LEER, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+    db QUICK_ATTACK, LEER, NO_MOVE, NO_MOVE        ; Level 1 learnset
+    db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  HYPER_BEAM,   SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
-	     RAGE,         THUNDERBOLT,  THUNDER,      PSYCHIC_M,    TELEPORT,     \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         METRONOME,    \
-	     SWIFT,        SKULL_BASH,   REST,         THUNDER_WAVE, PSYWAVE,      \
-	     SUBSTITUTE,   STRENGTH,     FLASH
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    MEGA_PUNCH,   \
+    MEGA_KICK,    \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    HYPER_BEAM,   \
+    SUBMISSION,   \
+    COUNTER,      \
+    SEISMIC_TOSS, \
+    RAGE,         \
+    THUNDERBOLT,  \
+    THUNDER,      \
+    PSYCHIC_M,    \
+    TELEPORT,     \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    METRONOME,    \
+    SWIFT,        \
+    SKULL_BASH,   \
+    REST,         \
+    THUNDER_WAVE, \
+    PSYWAVE,      \
+    SUBSTITUTE,   \
+    STRENGTH,     \
+    FLASH
+; end
 
-	db BANK(ElectabuzzPicFront)
+    db BANK(ElectabuzzPicFront)

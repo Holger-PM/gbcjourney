@@ -1,27 +1,46 @@
-	db DEX_DODUO ; pokedex id
+	db DEX_DODUO      ; Pokedex ID
 
-	db  35,  85,  45,  75,  35
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  35            ; HP
+    db  85            ; Attack
+    db  45            ; Defense
+    db  75            ; Speed
+    db  35            ; Special
 
-	db NORMAL, FLYING ; type
-	db 190 ; catch rate
-	db 96 ; base exp
+; --- Types & Training ---
+    db NORMAL         ; Type 1
+    db FLYING         ; Type 2
+    db 190            ; Catch rate
+    db  96            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/doduo.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/doduo.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/doduo.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/doduo.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw DoduoPicFront, DoduoPicBack
+    dw DoduoPicFront, DoduoPicBack
 
-	db PECK, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+    db PECK, NO_MOVE, NO_MOVE, NO_MOVE             ; Level 1 learnset
+    db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm WHIRLWIND,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     RAGE,         MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SKULL_BASH,      REST,         TRI_ATTACK,   SUBSTITUTE,              \
-	     FLY
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    RAGE,         \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    SKULL_BASH,   \
+    REST,         \
+    TRI_ATTACK,   \
+    SUBSTITUTE,   \
+    FLY
+; end
 
-	db BANK(DoduoPicFront)
+    db BANK(DoduoPicFront)

@@ -1,27 +1,48 @@
-	db DEX_PINSIR ; pokedex id
+	db DEX_PINSIR     ; Pokedex ID
 
-	db  65, 125, 100,  85,  55
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  65            ; HP
+	db 125            ; Attack
+	db 100            ; Defense
+	db  85            ; Speed
+	db  55            ; Special
 
-	db BUG, BUG ; type
-	db 45 ; catch rate
-	db 200 ; base exp
+; --- Types & Training ---
+	db BUG            ; Type 1
+	db BUG            ; Type 2
+	db  45            ; Catch rate
+	db 200            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/pinsir.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/pinsir.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/pinsir.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/pinsir.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw PinsirPicFront, PinsirPicBack
 
-	db VICEGRIP, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_SLOW ; growth rate
+; --- Moves & Growth ---
+	db VICEGRIP, NO_MOVE, NO_MOVE, NO_MOVE         ; Level 1 learnset
+	db GROWTH_SLOW                                 ; Growth rate
 
-	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     HYPER_BEAM,   SUBMISSION,   SEISMIC_TOSS, RAGE,         MIMIC,        \
-	     DOUBLE_TEAM,  BIDE,         REST,         SUBSTITUTE,   CUT,          \
-	     STRENGTH
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	SWORDS_DANCE, \
+	TOXIC,        \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	HYPER_BEAM,   \
+	SUBMISSION,   \
+	SEISMIC_TOSS, \
+	RAGE,         \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	BIDE,         \
+	REST,         \
+	SUBSTITUTE,   \
+	CUT,          \
+	STRENGTH
+; end
 
 	db BANK(PinsirPicFront)

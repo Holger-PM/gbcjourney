@@ -1,31 +1,69 @@
-	db DEX_SLOWBRO ; pokedex id
+	db DEX_SLOWBRO    ; Pokedex ID
 
-	db  95,  75, 110,  30,  80
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  95            ; HP
+	db  75            ; Attack
+	db 110            ; Defense
+	db  30            ; Speed
+	db  80            ; Special
 
-	db WATER, PSYCHIC_TYPE ; type
-	db 75 ; catch rate
-	db 164 ; base exp
+; --- Types & Training ---
+	db WATER          ; Type 1
+	db PSYCHIC_TYPE   ; Type 2
+	db  75            ; Catch rate
+	db 164            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/slowbro.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/slowbro.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/slowbro.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/slowbro.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw SlowbroPicFront, SlowbroPicBack
 
-	db TACKLE, DISABLE, HEADBUTT, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+	db TACKLE, DISABLE, HEADBUTT, NO_MOVE          ; Level 1 learnset
+	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK, TOXIC, BODY_SLAM, TAKE_DOWN,   SUBSTITUTE, \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     HYPER_BEAM,   PAY_DAY,      SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
-	     RAGE,         EARTHQUAKE,   FISSURE,      DIG,          PSYCHIC_M,    \
-	     TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     FIRE_BLAST,   SWIFT,        SKULL_BASH,   REST,         THUNDER_WAVE, \
-	     PSYWAVE,      TRI_ATTACK,    SURF,         STRENGTH,     FLASH,        \
-	     FLAMETHROWER
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	MEGA_PUNCH,   \
+	MEGA_KICK,    \
+	TOXIC,        \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	BUBBLEBEAM,   \
+	WATER_GUN,    \
+	ICE_BEAM,     \
+	BLIZZARD,     \
+	HYPER_BEAM,   \
+	PAY_DAY,      \
+	SUBMISSION,   \
+	COUNTER,      \
+	SEISMIC_TOSS, \
+	RAGE,         \
+	EARTHQUAKE,   \
+	FISSURE,      \
+	DIG,          \
+	PSYCHIC_M,    \
+	TELEPORT,     \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	FIRE_BLAST,   \
+	SWIFT,        \
+	SKULL_BASH,   \
+	REST,         \
+	THUNDER_WAVE, \
+	PSYWAVE,      \
+	TRI_ATTACK,   \
+	SUBSTITUTE,   \
+	SURF,         \
+	STRENGTH,     \
+	FLASH,        \
+	FLAMETHROWER
+; end
 
 	db BANK(SlowbroPicFront)

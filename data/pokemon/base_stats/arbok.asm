@@ -1,27 +1,50 @@
-	db DEX_ARBOK ; pokedex id
+	db DEX_ARBOK      ; Pokedex ID
 
-	db  62,  95,  69,  90,  65
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db 62             ; HP
+    db 95             ; Attack
+    db 69             ; Defense
+    db 90             ; Speed
+    db 65             ; Special
 
-	db POISON, POISON ; type
-	db 90 ; catch rate
-	db 147 ; base exp
+; --- Types & Training ---
+	db POISON         ; Type 1
+    db POISON         ; Type 2
+    db 90             ; Catch rate
+    db 147            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/arbok.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/arbok.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/arbok.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/arbok.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw ArbokPicFront, ArbokPicBack
+    dw ArbokPicFront, ArbokPicBack
 
-	db LEER, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+    db POISON_STING, LEER, NO_MOVE, NO_MOVE      ; Level 1 learnset
+    db GROWTH_MEDIUM_FAST                        ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   \
-	     RAGE,         MEGA_DRAIN,   EARTHQUAKE,   FISSURE,      DIG,          \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         SKULL_BASH,   REST,         \
-	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    HYPER_BEAM,   \
+    RAGE,         \
+    MEGA_DRAIN,   \
+    EARTHQUAKE,   \
+    FISSURE,      \
+    DIG,          \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    BIDE,         \
+    SKULL_BASH,   \
+    REST,         \
+    ROCK_SLIDE,   \
+    SUBSTITUTE,   \
+    STRENGTH
+; end
 
-	db BANK(ArbokPicFront)
+    db BANK(ArbokPicFront)

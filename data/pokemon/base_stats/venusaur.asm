@@ -1,27 +1,50 @@
-	db DEX_VENUSAUR ; pokedex id
+	db DEX_VENUSAUR   ; Pokedex ID
 
-	db  80,  82,  83,  80, 100
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  80            ; HP
+	db  82            ; Attack
+	db  83            ; Defense
+	db  80            ; Speed
+	db 100            ; Special
 
-	db GRASS, POISON ; type
-	db 45 ; catch rate
-	db 208 ; base exp
+; --- Types & Training ---
+	db GRASS          ; Type 1
+	db POISON         ; Type 2
+	db  45            ; Catch rate
+	db 208            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/venusaur.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/venusaur.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/venusaur.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/venusaur.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw VenusaurPicFront, VenusaurPicBack
 
-	db TACKLE, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+	db TACKLE, GROWL, NO_MOVE, NO_MOVE              ; Level 1 learnset
+	db GROWTH_MEDIUM_SLOW                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     HYPER_BEAM,   RAGE,         MEGA_DRAIN,   SOLARBEAM,    MIMIC,        \
-	     DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         SUBSTITUTE,   \
-	     CUT,		   ROCK_SLIDE,   EARTHQUAKE
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	SWORDS_DANCE, \
+	TOXIC,        \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	HYPER_BEAM,   \
+	RAGE,         \
+	MEGA_DRAIN,   \
+	SOLARBEAM,    \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	REST,         \
+	SUBSTITUTE,   \
+	CUT,          \
+	ROCK_SLIDE,   \
+	EARTHQUAKE
+; end
 
 	db BANK(VenusaurPicFront)

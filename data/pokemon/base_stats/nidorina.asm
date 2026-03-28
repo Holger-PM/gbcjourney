@@ -1,27 +1,52 @@
-	db DEX_NIDORINA ; pokedex id
+	db DEX_NIDORINA   ; Pokedex ID
 
-	db  70,  62,  67,  56,  55
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  70            ; HP
+	db  62            ; Attack
+	db  67            ; Defense
+	db  56            ; Speed
+	db  55            ; Special
 
-	db POISON, POISON ; type
-	db 120 ; catch rate
-	db 117 ; base exp
+; --- Types & Training ---
+	db POISON         ; Type 1
+	db POISON         ; Type 2
+	db 120            ; Catch rate
+	db 117            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/nidorina.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/nidorina.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/nidorina.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/nidorina.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw NidorinaPicFront, NidorinaPicBack
 
-	db GROWL, TACKLE, SCRATCH, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+	db GROWL, TACKLE, SCRATCH, NO_MOVE             ; Level 1 learnset
+	db GROWTH_MEDIUM_SLOW                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,        HORN_DRILL,   BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     RAGE,         \
-	     THUNDERBOLT,  THUNDER,      DIG,          MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         SKULL_BASH,   REST,         SUBSTITUTE
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	TOXIC,        \
+	HORN_DRILL,   \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	BUBBLEBEAM,   \
+	WATER_GUN,    \
+	ICE_BEAM,     \
+	BLIZZARD,     \
+	RAGE,         \
+	THUNDERBOLT,  \
+	THUNDER,      \
+	DIG,          \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	SKULL_BASH,   \
+	REST,         \
+	SUBSTITUTE
+; end
 
 	db BANK(NidorinaPicFront)

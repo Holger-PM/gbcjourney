@@ -1,26 +1,46 @@
-	db DEX_WEEPINBELL ; pokedex id
+	db DEX_WEEPINBELL ; Pokedex ID
 
-	db  65,  90,  50,  55,  85
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  65            ; HP
+	db  90            ; Attack
+	db  50            ; Defense
+	db  55            ; Speed
+	db  85            ; Special
 
-	db GRASS, POISON ; type
-	db 120 ; catch rate
-	db 151 ; base exp
+; --- Types & Training ---
+	db GRASS          ; Type 1
+	db POISON         ; Type 2
+	db 120            ; Catch rate
+	db 151            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/weepinbell.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/weepinbell.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/weepinbell.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/weepinbell.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw WeepinbellPicFront, WeepinbellPicBack
 
-	db GROWTH, POISONPOWDER, VINE_WHIP, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+	db GROWTH, POISONPOWDER, VINE_WHIP, NO_MOVE    ; Level 1 learnset
+	db GROWTH_MEDIUM_SLOW                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         \
-	     MEGA_DRAIN,   SOLARBEAM,    MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         REST,         SUBSTITUTE,   CUT
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	SWORDS_DANCE, \
+	TOXIC,        \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	RAGE,         \
+	MEGA_DRAIN,   \
+	SOLARBEAM,    \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	REST,         \
+	SUBSTITUTE,   \
+	CUT
+; end
 
 	db BANK(WeepinbellPicFront)

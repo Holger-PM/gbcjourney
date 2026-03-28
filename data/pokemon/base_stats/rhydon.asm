@@ -1,30 +1,66 @@
-	db DEX_RHYDON ; pokedex id
+	db DEX_RHYDON     ; Pokedex ID
 
-	db 105, 130, 120,  40,  45
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db 105            ; HP
+	db 130            ; Attack
+	db 120            ; Defense
+	db  40            ; Speed
+	db  45            ; Special
 
-	db GROUND, ROCK ; type
-	db 60 ; catch rate
-	db 204 ; base exp
+; --- Types & Training ---
+	db GROUND         ; Type 1
+	db ROCK           ; Type 2
+	db  60            ; Catch rate
+	db 204            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/rhydon.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/rhydon.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/rhydon.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/rhydon.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw RhydonPicFront, RhydonPicBack
 
-	db HORN_ATTACK, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_SLOW ; growth rate
+; --- Moves & Growth ---
+	db HORN_ATTACK, NO_MOVE, NO_MOVE, NO_MOVE      ; Level 1 learnset
+	db GROWTH_SLOW                                 ; Growth rate
 
-	; tm/hm learnset
-	tmhm MEGA_PUNCH,  MEGA_KICK, TOXIC, HORN_DRILL, BODY_SLAM,    REST,    \
-	     TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     \
-	     BLIZZARD,     HYPER_BEAM,   PAY_DAY,      SUBMISSION,   COUNTER,      \
-	     SEISMIC_TOSS, RAGE,         THUNDERBOLT,  THUNDER,      EARTHQUAKE,   \
-	     FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     FIRE_BLAST,   SKULL_BASH,   ROCK_SLIDE,   SUBSTITUTE,   CUT,      \
-	     SURF, 	   STRENGTH,     FLAMETHROWER
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	MEGA_PUNCH,   \
+	MEGA_KICK,    \
+	TOXIC,        \
+	HORN_DRILL,   \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	BUBBLEBEAM,   \
+	WATER_GUN,    \
+	ICE_BEAM,     \
+	BLIZZARD,     \
+	HYPER_BEAM,   \
+	PAY_DAY,      \
+	SUBMISSION,   \
+	COUNTER,      \
+	SEISMIC_TOSS, \
+	RAGE,         \
+	THUNDERBOLT,  \
+	THUNDER,      \
+	EARTHQUAKE,   \
+	FISSURE,      \
+	DIG,          \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	BIDE,         \
+	FIRE_BLAST,   \
+	SKULL_BASH,   \
+	REST,         \
+	ROCK_SLIDE,   \
+	SUBSTITUTE,   \
+	SURF,         \
+	STRENGTH,     \
+	CUT,          \
+	FLAMETHROWER
+; end
 
 	db BANK(RhydonPicFront)

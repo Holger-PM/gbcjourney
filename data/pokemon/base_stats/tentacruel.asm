@@ -1,27 +1,52 @@
-	db DEX_TENTACRUEL ; pokedex id
+	db DEX_TENTACRUEL ; Pokedex ID
 
-	db  80,  70,  65, 100, 120
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  80            ; HP
+	db  70            ; Attack
+	db  65            ; Defense
+	db 100            ; Speed
+	db 120            ; Special
 
-	db WATER, POISON ; type
-	db 60 ; catch rate
-	db 205 ; base exp
+; --- Types & Training ---
+	db WATER          ; Type 1
+	db POISON         ; Type 2
+	db  60            ; Catch rate
+	db 205            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/tentacruel.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/tentacruel.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/tentacruel.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/tentacruel.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw TentacruelPicFront, TentacruelPicBack
 
-	db WRAP, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_SLOW ; growth rate
+; --- Moves & Growth ---
+	db WRAP, NO_MOVE, NO_MOVE, NO_MOVE              ; Level 1 learnset
+	db GROWTH_SLOW                                 ; Growth rate
 
-	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         \
-	     MEGA_DRAIN,   MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SKULL_BASH,   REST,         SUBSTITUTE,   CUT,          SURF
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	SWORDS_DANCE, \
+	TOXIC,        \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	BUBBLEBEAM,   \
+	WATER_GUN,    \
+	ICE_BEAM,     \
+	BLIZZARD,     \
+	HYPER_BEAM,   \
+	RAGE,         \
+	MEGA_DRAIN,   \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	SKULL_BASH,   \
+	REST,         \
+	SUBSTITUTE,   \
+	CUT,          \
+	SURF
+; end
 
 	db BANK(TentacruelPicFront)

@@ -1,28 +1,54 @@
-	db DEX_EXEGGUTOR ; pokedex id
+	db DEX_EXEGGUTOR  ; Pokedex ID
 
-	db  95,  95,  85,  55, 125
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  95            ; HP
+    db  95            ; Attack
+    db  85            ; Defense
+    db  55            ; Speed
+    db 125            ; Special
 
-	db GRASS, PSYCHIC_TYPE ; type
-	db 45 ; catch rate
-	db 212 ; base exp
+; --- Types & Training ---
+    db GRASS          ; Type 1
+    db PSYCHIC_TYPE   ; Type 2
+    db  45            ; Catch rate
+    db 212            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/exeggutor.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/exeggutor.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/exeggutor.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/exeggutor.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw ExeggutorPicFront, ExeggutorPicBack
+    dw ExeggutorPicFront, ExeggutorPicBack
 
-	db BARRAGE, HYPNOSIS, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_SLOW ; growth rate
+; --- Moves & Growth ---
+    db BARRAGE, HYPNOSIS, NO_MOVE, NO_MOVE         ; Level 1 learnset
+    db GROWTH_SLOW                                 ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   RAGE,         \
-	     MEGA_DRAIN,   SOLARBEAM,    PSYCHIC_M,    TELEPORT,     MIMIC,        \
-	     DOUBLE_TEAM,  REFLECT,      BIDE,         SELFDESTRUCT, EGG_BOMB,     \
-	     SOFTBOILED,   REST,   PSYWAVE,  EXPLOSION,   SUBSTITUTE,  STRENGTH,   \
-		 MEGA_DRAIN,   DREAM_EATER
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    TOXIC,        \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    HYPER_BEAM,   \
+    RAGE,         \
+    MEGA_DRAIN,   \
+    SOLARBEAM,    \
+    PSYCHIC_M,    \
+    TELEPORT,     \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    SELFDESTRUCT, \
+    EGG_BOMB,     \
+    SOFTBOILED,   \
+    REST,         \
+    PSYWAVE,      \
+    EXPLOSION,    \
+    SUBSTITUTE,   \
+    STRENGTH,     \
+    DREAM_EATER
+; end
 
-	db BANK(ExeggutorPicFront)
+    db BANK(ExeggutorPicFront)

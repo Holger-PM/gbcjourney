@@ -1,28 +1,54 @@
-	db DEX_TAUROS ; pokedex id
+	db DEX_TAUROS     ; Pokedex ID
 
-	db  75, 100,  95, 110,  70
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  75            ; HP
+	db 100            ; Attack
+	db  95            ; Defense
+	db 110            ; Speed
+	db  70            ; Special
 
-	db NORMAL, NORMAL ; type
-	db 45 ; catch rate
-	db 211 ; base exp
+; --- Types & Training ---
+	db NORMAL         ; Type 1
+	db NORMAL         ; Type 2
+	db  45            ; Catch rate
+	db 211            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/tauros.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/tauros.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/tauros.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/tauros.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw TaurosPicFront, TaurosPicBack
 
-	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_SLOW ; growth rate
+; --- Moves & Growth ---
+	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE           ; Level 1 learnset
+	db GROWTH_SLOW                                 ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC, HORN_DRILL, BODY_SLAM, TAKE_DOWN,  DOUBLE_EDGE,  REST,        \
-	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         THUNDERBOLT,  \
-	     THUNDER,      EARTHQUAKE,   FISSURE,      MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         FIRE_BLAST,   SKULL_BASH,   SUBSTITUTE,   STRENGTH,      \
-	     FLAMETHROWER
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	TOXIC,        \
+	HORN_DRILL,   \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	ICE_BEAM,     \
+	BLIZZARD,     \
+	HYPER_BEAM,   \
+	RAGE,         \
+	THUNDERBOLT,  \
+	THUNDER,      \
+	EARTHQUAKE,   \
+	FISSURE,      \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	BIDE,         \
+	FIRE_BLAST,   \
+	SKULL_BASH,   \
+	REST,         \
+	SUBSTITUTE,   \
+	STRENGTH,     \
+	FLAMETHROWER
+; end
 
 	db BANK(TaurosPicFront)

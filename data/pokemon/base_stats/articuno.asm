@@ -1,27 +1,51 @@
-	db DEX_ARTICUNO ; pokedex id
+	db DEX_ARTICUNO   ; Pokedex ID
 
-	db  90,  85, 100,  85, 125
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db 90             ; HP
+    db 85             ; Attack
+    db 100            ; Defense
+    db 85             ; Speed
+    db 125            ; Special
 
-	db ICE, FLYING ; type
-	db 3 ; catch rate
-	db 215 ; base exp
+; --- Types & Training ---
+    db ICE            ; Type 1
+    db FLYING         ; Type 2
+    db 3              ; Catch rate
+    db 215            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/articuno.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/articuno.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/articuno.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/articuno.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw ArticunoPicFront, ArticunoPicBack
+    dw ArticunoPicFront, ArticunoPicBack
 
-	db PECK, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_SLOW ; growth rate
+; --- Moves & Growth ---
+    db PECK, NO_MOVE, NO_MOVE, NO_MOVE              ; Level 1 learnset
+    db GROWTH_SLOW                                  ; Growth rate
 
-	; tm/hm learnset
-	tmhm RAZOR_WIND,   WHIRLWIND,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
-	     BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   \
-	     RAGE,         MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SWIFT,        SKY_ATTACK,   REST,         SUBSTITUTE,   FLY
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    RAZOR_WIND,   \
+    TOXIC,        \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    BUBBLEBEAM,   \
+    WATER_GUN,    \
+    ICE_BEAM,     \
+    BLIZZARD,     \
+    HYPER_BEAM,   \
+    RAGE,         \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    SWIFT,        \
+    SKY_ATTACK,   \
+    REST,         \
+    SUBSTITUTE,   \
+    FLY
+; end
 
-	db BANK(ArticunoPicFront)
+    db BANK(ArticunoPicFront)

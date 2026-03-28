@@ -1,27 +1,50 @@
-	db DEX_NINETALES ; pokedex id
+	db DEX_NINETALES  ; Pokedex ID
 
-	db  73,  76,  75, 100, 100
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  73            ; HP
+	db  76            ; Attack
+	db  75            ; Defense
+	db 100            ; Speed
+	db 100            ; Special
 
-	db FIRE, FIRE ; type
-	db 75 ; catch rate
-	db 178 ; base exp
+; --- Types & Training ---
+	db FIRE           ; Type 1
+	db FIRE           ; Type 2
+	db  75            ; Catch rate
+	db 178            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/ninetales.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/ninetales.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/ninetales.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/ninetales.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw NinetalesPicFront, NinetalesPicBack
 
-	db EMBER, TAIL_WHIP, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+	db EMBER, TAIL_WHIP, NO_MOVE, NO_MOVE          ; Level 1 learnset
+	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC, BODY_SLAM, TAKE_DOWN, DOUBLE_EDGE, HYPER_BEAM,  REST,   \
-	     RAGE,   SOLARBEAM,    DIG,      MIMIC,   DOUBLE_TEAM,   REFLECT,      \
-	     BIDE,         FIRE_BLAST,   SWIFT,        SKULL_BASH,   SUBSTITUTE,         \
-	     FLAMETHROWER
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	TOXIC,        \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	HYPER_BEAM,   \
+	REST,         \
+	RAGE,         \
+	SOLARBEAM,    \
+	DIG,          \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	REFLECT,      \
+	BIDE,         \
+	FIRE_BLAST,   \
+	SWIFT,        \
+	SKULL_BASH,   \
+	SUBSTITUTE,   \
+	FLAMETHROWER
+; end
 
 	db BANK(NinetalesPicFront)

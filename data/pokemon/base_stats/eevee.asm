@@ -1,26 +1,46 @@
-	db DEX_EEVEE ; pokedex id
+	db DEX_EEVEE      ; Pokedex ID
 
-	db  70,  65,  65,  55,  70
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  70            ; HP
+    db  65            ; Attack
+    db  65            ; Defense
+    db  55            ; Speed
+    db  70            ; Special
 
-	db NORMAL, NORMAL ; type
-	db 45 ; catch rate
-	db 92 ; base exp
+; --- Types & Training ---
+    db NORMAL         ; Type 1
+    db NORMAL         ; Type 2
+    db  45            ; Catch rate
+    db  92            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/eevee.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/eevee.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/eevee.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/eevee.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw EeveePicFront, EeveePicBack
+    dw EeveePicFront, EeveePicBack
 
-	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+    db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE           ; Level 1 learnset
+    db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         \
-	     DIG,          MIMIC,   DOUBLE_TEAM,  REFLECT,      BIDE,              \
-	     SWIFT,        SKULL_BASH,   REST,         SUBSTITUTE
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    RAGE,         \
+    DIG,          \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    SWIFT,        \
+    SKULL_BASH,   \
+    REST,         \
+    SUBSTITUTE
+; end
 
-	db BANK(EeveePicFront)
+    db BANK(EeveePicFront)

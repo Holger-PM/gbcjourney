@@ -1,28 +1,57 @@
-	db DEX_CHARMELEON ; pokedex id
+	db DEX_CHARMELEON ; Pokedex ID
 
-	db  58,  64,  58,  80,  70
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db 58             ; HP
+    db 64             ; Attack
+    db 58             ; Defense
+    db 80             ; Speed
+    db 70             ; Special
 
-	db FIRE, FIRE ; type
-	db 45 ; catch rate
-	db 142 ; base exp
+; --- Types & Training ---
+    db FIRE           ; Type 1
+    db FIRE           ; Type 2
+    db 45             ; Catch rate
+    db 142            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/charmeleon.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/charmeleon.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/charmeleon.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/charmeleon.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw CharmeleonPicFront, CharmeleonPicBack
+    dw CharmeleonPicFront, CharmeleonPicBack
 
-	db SCRATCH, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+    db SCRATCH, GROWL, NO_MOVE, NO_MOVE               ; Level 1 learnset
+    db GROWTH_MEDIUM_SLOW                            ; Growth rate
 
-	; tm/hm learnset
-	tmhm MEGA_PUNCH, SWORDS_DANCE,  MEGA_KICK,     TOXIC,  BODY_SLAM,  \
-	     TAKE_DOWN,    DOUBLE_EDGE,  SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
-	     RAGE,         DRAGON_RAGE,  DIG,          MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         FIRE_BLAST,   SWIFT,        SKULL_BASH,   \
-	     REST,         SUBSTITUTE,   CUT,          STRENGTH,     FLAMETHROWER
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    MEGA_PUNCH,   \
+    SWORDS_DANCE, \
+    MEGA_KICK,    \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    SUBMISSION,   \
+    COUNTER,      \
+    SEISMIC_TOSS, \
+    RAGE,         \
+    DRAGON_RAGE,  \
+    DIG,          \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    FIRE_BLAST,   \
+    SWIFT,        \
+    SKULL_BASH,   \
+    REST,         \
+    SUBSTITUTE,   \
+    CUT,          \
+    STRENGTH,     \
+    FLAMETHROWER
+; end
 
-	db BANK(CharmeleonPicFront)
+    db BANK(CharmeleonPicFront)

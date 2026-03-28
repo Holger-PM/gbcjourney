@@ -1,27 +1,50 @@
-	db DEX_JOLTEON ; pokedex id
+	db DEX_JOLTEON    ; Pokedex ID
 
-	db  65,  65,  60, 130, 110
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  65            ; HP
+    db  65            ; Attack
+    db  60            ; Defense
+    db 130            ; Speed
+    db 110            ; Special
 
-	db ELECTRIC, ELECTRIC ; type
-	db 45 ; catch rate
-	db 197 ; base exp
+; --- Types & Training ---
+    db ELECTRIC       ; Type 1
+    db ELECTRIC       ; Type 2
+    db  45            ; Catch rate
+    db 197            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/jolteon.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/jolteon.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/jolteon.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/jolteon.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw JolteonPicFront, JolteonPicBack
+    dw JolteonPicFront, JolteonPicBack
 
-	db TACKLE, TAIL_WHIP, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+    db TACKLE, TAIL_WHIP, NO_MOVE, NO_MOVE         ; Level 1 learnset
+    db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   \
-	     RAGE,         THUNDERBOLT,  THUNDER,      MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         SWIFT,        SKULL_BASH,   REST,         \
-	     THUNDER_WAVE, SUBSTITUTE,   FLASH
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    TOXIC,        \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    HYPER_BEAM,   \
+    RAGE,         \
+    THUNDERBOLT,  \
+    THUNDER,      \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    SWIFT,        \
+    SKULL_BASH,   \
+    REST,         \
+    THUNDER_WAVE, \
+    SUBSTITUTE,   \
+    FLASH
+; end
 
-	db BANK(JolteonPicFront)
+    db BANK(JolteonPicFront)

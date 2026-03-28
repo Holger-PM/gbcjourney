@@ -1,29 +1,61 @@
-	db DEX_POLIWRATH ; pokedex id
+	db DEX_POLIWRATH  ; Pokedex ID
 
-	db  90,  85,  95,  70,  70
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  90            ; HP
+	db  85            ; Attack
+	db  95            ; Defense
+	db  70            ; Speed
+	db  70            ; Special
 
-	db WATER, FIGHTING ; type
-	db 45 ; catch rate
-	db 185 ; base exp
+; --- Types & Training ---
+	db WATER          ; Type 1
+	db FIGHTING       ; Type 2
+	db  45            ; Catch rate
+	db 185            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/poliwrath.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/poliwrath.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/poliwrath.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/poliwrath.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw PoliwrathPicFront, PoliwrathPicBack
 
-	db HYPNOSIS, BODY_SLAM, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_SLOW ; growth rate
+; --- Moves & Growth ---
+	db HYPNOSIS, BODY_SLAM, NO_MOVE, NO_MOVE       ; Level 1 learnset
+	db GROWTH_MEDIUM_SLOW                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     HYPER_BEAM,   SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         \
-	     EARTHQUAKE,   FISSURE,      PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         METRONOME,    SKULL_BASH,   DREAM_EATER,  REST,              \
-	     PSYWAVE,      SUBSTITUTE,   SURF,         STRENGTH
-	; end
+; --- TM/HM Learnset ---
+	tmhm \
+	MEGA_PUNCH,   \
+	MEGA_KICK,    \
+	TOXIC,        \
+	BODY_SLAM,    \
+	TAKE_DOWN,    \
+	DOUBLE_EDGE,  \
+	BUBBLEBEAM,   \
+	WATER_GUN,    \
+	ICE_BEAM,     \
+	BLIZZARD,     \
+	HYPER_BEAM,   \
+	SUBMISSION,   \
+	COUNTER,      \
+	SEISMIC_TOSS, \
+	RAGE,         \
+	EARTHQUAKE,   \
+	FISSURE,      \
+	PSYCHIC_M,    \
+	MIMIC,        \
+	DOUBLE_TEAM,  \
+	BIDE,         \
+	METRONOME,    \
+	SKULL_BASH,   \
+	DREAM_EATER,  \
+	REST,         \
+	PSYWAVE,      \
+	SUBSTITUTE,   \
+	SURF,         \
+	STRENGTH
+; end
 
 	db BANK(PoliwrathPicFront)

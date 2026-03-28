@@ -1,24 +1,32 @@
-	db DEX_CATERPIE ; pokedex id
+db DEX_CATERPIE   ; Pokedex ID
 
-	db  45,  30,  35,  45,  20
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+	db  45            ; HP
+	db  30            ; Attack
+	db  35            ; Defense
+	db  45            ; Speed
+	db  20            ; Special
 
-	db BUG, BUG ; type
-	db 255 ; catch rate
-	db 53 ; base exp
+; --- Types & Training ---
+	db BUG            ; Type 1
+	db BUG            ; Type 2
+	db 255            ; Catch rate
+	db  53            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/caterpie.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/gsfront/caterpie.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/caterpie.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/caterpie.pic", 0, 1   ; Sprite dimensions
 ENDC
 	dw CaterpiePicFront, CaterpiePicBack
 
-	db TACKLE, STRING_SHOT, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+	db TACKLE, STRING_SHOT, NO_MOVE, NO_MOVE        ; Level 1 learnset
+	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm
-	; end
+; --- TM/HM Learnset ---
+	tmhm CUT
+; end
 
 	db BANK(CaterpiePicFront)

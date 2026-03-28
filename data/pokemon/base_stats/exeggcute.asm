@@ -1,27 +1,51 @@
-	db DEX_EXEGGCUTE ; pokedex id
+	db DEX_EXEGGCUTE  ; Pokedex ID
 
-	db  60,  40,  80,  40,  60
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  60            ; HP
+    db  40            ; Attack
+    db  80            ; Defense
+    db  40            ; Speed
+    db  60            ; Special
 
-	db GRASS, PSYCHIC_TYPE ; type
-	db 90 ; catch rate
-	db 98 ; base exp
+; --- Types & Training ---
+    db GRASS          ; Type 1
+    db PSYCHIC_TYPE   ; Type 2
+    db  90            ; Catch rate
+    db  98            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/exeggcute.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/exeggcute.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/exeggcute.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/exeggcute.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw ExeggcutePicFront, ExeggcutePicBack
+    dw ExeggcutePicFront, ExeggcutePicBack
 
-	db BARRAGE, HYPNOSIS, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_SLOW ; growth rate
+; --- Moves & Growth ---
+    db BARRAGE, HYPNOSIS, NO_MOVE, NO_MOVE         ; Level 1 learnset
+    db GROWTH_SLOW                                 ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         PSYCHIC_M,    \
-	     TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SELFDESTRUCT, EGG_BOMB,     REST,         PSYWAVE,      EXPLOSION,    \
-	     SUBSTITUTE,   SOFTBOILED,	 MEGA_DRAIN,   DREAM_EATER
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    TOXIC,        \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    RAGE,         \
+    PSYCHIC_M,    \
+    TELEPORT,     \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    SELFDESTRUCT, \
+    EGG_BOMB,     \
+    REST,         \
+    PSYWAVE,      \
+    EXPLOSION,    \
+    SUBSTITUTE,   \
+    SOFTBOILED,   \
+    MEGA_DRAIN,   \
+    DREAM_EATER
+; end
 
-	db BANK(ExeggcutePicFront)
+    db BANK(ExeggcutePicFront)

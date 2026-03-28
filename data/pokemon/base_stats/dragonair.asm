@@ -1,28 +1,57 @@
-	db DEX_DRAGONAIR ; pokedex id
+	db DEX_DRAGONAIR  ; Pokedex ID
 
-	db  61,  84,  65,  70,  70
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  61            ; HP
+    db  84            ; Attack
+    db  65            ; Defense
+    db  70            ; Speed
+    db  70            ; Special
 
-	db DRAGON, DRAGON ; type
-	db 27 ; catch rate
-	db 144 ; base exp
+; --- Types & Training ---
+    db DRAGON         ; Type 1
+    db DRAGON         ; Type 2
+    db  27            ; Catch rate
+    db 144            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/dragonair.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/dragonair.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/dragonair.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/dragonair.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw DragonairPicFront, DragonairPicBack
+    dw DragonairPicFront, DragonairPicBack
 
-	db WRAP, LEER, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_SLOW ; growth rate
+; --- Moves & Growth ---
+    db WRAP, LEER, NO_MOVE, NO_MOVE                  ; Level 1 learnset
+    db GROWTH_SLOW                                   ; Growth rate
 
-	; tm/hm learnset
-	tmhm TOXIC,      HORN_DRILL,   BODY_SLAM,    TAKE_DOWN,  DOUBLE_EDGE,  \
-	     BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     RAGE,         \
-	     DRAGON_RAGE,  THUNDERBOLT,  THUNDER,      MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         FIRE_BLAST,   SWIFT,        SKULL_BASH,   \
-	     REST,         THUNDER_WAVE, SUBSTITUTE,   SURF,         FLAMETHROWER
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    TOXIC,        \
+    HORN_DRILL,   \
+    BODY_SLAM,    \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    BUBBLEBEAM,   \
+    WATER_GUN,    \
+    ICE_BEAM,     \
+    BLIZZARD,     \
+    RAGE,         \
+    DRAGON_RAGE,  \
+    THUNDERBOLT,  \
+    THUNDER,      \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    REFLECT,      \
+    BIDE,         \
+    FIRE_BLAST,   \
+    SWIFT,        \
+    SKULL_BASH,   \
+    REST,         \
+    THUNDER_WAVE, \
+    SUBSTITUTE,   \
+    SURF,         \
+    FLAMETHROWER
+; end
 
-	db BANK(DragonairPicFront)
+    db BANK(DragonairPicFront)

@@ -1,26 +1,46 @@
-	db DEX_GOLBAT ; pokedex id
+	db DEX_GOLBAT     ; Pokedex ID
 
-	db  75,  80,  70,  100,  75
-	;   hp  atk  def  spd  spc
+; --- Base Stats ---
+    db  75            ; HP
+    db  80            ; Attack
+    db  70            ; Defense
+    db  90            ; Speed
+    db  75            ; Special
 
-	db POISON, FLYING ; type
-	db 90 ; catch rate
-	db 171 ; base exp
+; --- Types & Training ---
+    db POISON         ; Type 1
+    db FLYING         ; Type 2
+    db  90            ; Catch rate
+    db 171            ; Base exp yield
 
+; --- Graphics ---
 IF GEN_2_GRAPHICS
-	INCBIN "gfx/pokemon/gsfront/golbat.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/gsfront/golbat.pic", 0, 1 ; Sprite dimensions
 ELSE
-	INCBIN "gfx/pokemon/front/golbat.pic", 0, 1 ; sprite dimensions
+    INCBIN "gfx/pokemon/front/golbat.pic", 0, 1   ; Sprite dimensions
 ENDC
-	dw GolbatPicFront, GolbatPicBack
+    dw GolbatPicFront, GolbatPicBack
 
-	db LEECH_LIFE, SCREECH, NO_MOVE, NO_MOVE ; level 1 learnset
-	db GROWTH_MEDIUM_FAST ; growth rate
+; --- Moves & Growth ---
+    db LEECH_LIFE, SCREECH, NO_MOVE, NO_MOVE       ; Level 1 learnset
+    db GROWTH_MEDIUM_FAST                          ; Growth rate
 
-	; tm/hm learnset
-	tmhm RAZOR_WIND,   WHIRLWIND,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
-	     HYPER_BEAM,   RAGE,         MEGA_DRAIN,   MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         SWIFT,        REST,         SUBSTITUTE,   FLY
-	; end
+; --- TM/HM Learnset ---
+    tmhm \
+    RAZOR_WIND,   \
+    TOXIC,        \
+    TAKE_DOWN,    \
+    DOUBLE_EDGE,  \
+    HYPER_BEAM,   \
+    RAGE,         \
+    MEGA_DRAIN,   \
+    MIMIC,        \
+    DOUBLE_TEAM,  \
+    BIDE,         \
+    SWIFT,        \
+    REST,         \
+    SUBSTITUTE,   \
+    FLY
+; end
 
-	db BANK(GolbatPicFront)
+    db BANK(GolbatPicFront)
