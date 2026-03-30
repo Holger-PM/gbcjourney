@@ -27,7 +27,7 @@ Forest_Coll::
 	coll_tiles $1e, $20, $2e, $30, $34, $37, $39, $3a, $40, $51, $52, $5a, $5c, $5e, $5f
 
 House_Coll::
-	coll_tiles $01, $0c, $05, $11, $12, $14, $15, $25, $37, $44, $54, $4F
+	coll_tiles $01, $0c, $05, $11, $12, $14, $15, $25, $37, $42, $44, $54, $4F
 
 ForestGate_Coll::
 Museum_Coll::
@@ -75,5 +75,5 @@ Safari_Coll::
 RockTunnel_Coll::
 	coll_tiles $01, $1C, $1E, $40
 	
-OverworldM_Coll::
-	coll_tiles ; Add collisions
+ProfLab_Coll::
+	coll_tiles $01, $20

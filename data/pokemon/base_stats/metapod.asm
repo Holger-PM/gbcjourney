@@ -10,7 +10,7 @@
 ; --- Types & Training ---
 	db BUG            ; Type 1
 	db BUG            ; Type 2
-	db 120            ; Catch rate
+	db 195 ; 120      ; Catch rate
 	db  72            ; Base exp yield
 
 ; --- Graphics ---

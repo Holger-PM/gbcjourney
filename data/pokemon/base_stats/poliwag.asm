@@ -10,7 +10,7 @@
 ; --- Types & Training ---
 	db WATER          ; Type 1
 	db WATER          ; Type 2
-	db 255            ; Catch rate
+	db 195 ; 255      ; Catch rate
 	db  77            ; Base exp yield
 
 ; --- Graphics ---

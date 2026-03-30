@@ -10,7 +10,7 @@
 ; --- Types & Training ---
 	db FIGHTING       ; Type 1
 	db FIGHTING       ; Type 2
-	db 190            ; Catch rate
+	db 195 ; 190      ; Catch rate
 	db  74            ; Base exp yield
 
 ; --- Graphics ---

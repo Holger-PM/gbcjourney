@@ -1,15 +1,15 @@
 ViridianForestWildMons:
 	def_grass_wildmons 20 ; encounter rate
-	db  4, CATERPIE
-	db  4, WEEDLE
-	db  7, PIDGEY
+	db  4, ZUBAT
+	db  4, PARAS
+	db  7, VENONAT
 	db  7, KAKUNA
-	db  5, VENONAT
-	db  6, METAPOD
-	db  6, VENONAT
-    db  7, PIKACHU
-	db 10, PIDGEOTTO
-	db  6, EXEGGCUTE
+	db  5, EKANS
+	db  6, EKANS
+	db  6, EKANS
+    db  7, VENONAT
+	db 10, GLOOM
+	db  6, GASTLY
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

@@ -32,7 +32,7 @@ MapPaletteAssignments:
 	dw PlateauPalMap     ; PLATEAU
 	dw SafariPalMap      ; SAFARI
 	dw RockTunnelPalMap  ; ROCK_TUNNEL
-	dw OverworldMPalMap  ; OVERWORLD_M
+	dw ProfLabPalMap     ; PROF_LAB
 	assert_table_length NUM_TILESETS
 
 OverworldPalMap:
@@ -121,5 +121,5 @@ ELSE
 	INCLUDE "color/tilesets/safari.asm"
 ENDC
 
-OverworldMPalMap:
-	INCLUDE "color/tilesets/overworld_m.asm"
+ProfLabPalMap:
+	INCLUDE "color/tilesets/prof_lab.asm"

@@ -28,7 +28,7 @@ IF DEF(_DEBUG)
 ;	ld de, DebugMenuOptions
 ;	call PlaceString
 
-	ld a, TEXT_DELAY_MEDIUM
+	ld a, TEXT_DELAY_FAST
 	ld [wOptions], a
 
 	ld a, A_BUTTON | B_BUTTON | START
@@ -96,19 +96,25 @@ TestBattle: ; unreferenced except in _DEBUG
 	dec a
 	ld [hl], a
 
-	; Give the player a level 20 Rhydon.
-	ld a, RHYDON
+	; Give the player a Pokemon
+	ld a, RHYDON ; Set the Pokemon
 	ld [wcf91], a
-	ld a, 20
+	ld a, 50 ; Set the level you want here.
 	ld [wCurEnemyLVL], a
 	xor a
 	ld [wMonDataLocation], a
 	ld [wCurMap], a
 	call AddPartyMon
+	
+	ld hl, wPartyMon1Moves
+	ld a, SPLASH ; Set the move you want to test
+	ld [hli], a
 
-	; Fight against a level 20 Rhydon.
-	ld a, RHYDON
+	; Fight against a Pokemon
+	ld a, RHYDON ; Set the Pokemon
 	ld [wCurOpponent], a
+	ld a, 50 ; Set the level you want here.
+	ld [wCurEnemyLVL], a
 
 	predef InitOpponent
 

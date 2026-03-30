@@ -10,7 +10,7 @@
 ; --- Types & Training ---
     db POISON         ; Type 1
     db POISON         ; Type 2
-    db 255            ; Catch rate
+    db 195 ; 255      ; Catch rate
     db  62            ; Base exp yield
 
 ; --- Graphics ---

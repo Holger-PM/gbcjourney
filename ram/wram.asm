@@ -537,7 +537,8 @@ wLinkBattleRandomNumberListIndex:: db
 ; number of times remaining that AI action can occur
 wAICount:: db
 
-	ds 2
+wPlayerTurnCount:: db
+wEnemyTurnCount:: db
 
 wEnemyMoveListIndex:: db
 
@@ -959,7 +960,10 @@ wRightGBMonSpecies:: db
 ; bit 6: tried pushing against boulder once (you need to push twice before it will move)
 wFlags_0xcd60:: db
 
-	ds 9
+	ds 8
+	
+wLowHealthTonePairs:: db ;in battle, used as a counter for low hp alarm tone pairs. Bit 7 is a flag that indicates tones are currently being played.
+;;;;;;;;;;
 
 ; This has overlapping related uses.
 ; When the player tries to use an item or use certain field moves, 0 is stored
@@ -1155,8 +1159,10 @@ wExpAmountGained:: dw
 wGainBoostedExp:: db
 ENDU
 
-	ds 44
-
+	ds 43
+;;;;;;;;;; PureRGBnote: ADDED: new wram variables	
+wPlayerLastSelectedMoveDisable:: db ; store for disable functionality
+;;;;;;;;;;
 wListPointer:: dw
 
 ; used to store pointers, but never read

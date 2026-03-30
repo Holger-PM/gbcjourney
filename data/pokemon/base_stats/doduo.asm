@@ -10,7 +10,7 @@
 ; --- Types & Training ---
     db NORMAL         ; Type 1
     db FLYING         ; Type 2
-    db 190            ; Catch rate
+    db 195 ; 190      ; Catch rate
     db  96            ; Base exp yield
 
 ; --- Graphics ---

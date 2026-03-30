@@ -3,14 +3,14 @@
 ; --- Base Stats ---
     db  45            ; HP
     db  25            ; Attack
-    db  50            ; Defense
+    db  60 ; 50       ; Defense
     db  35            ; Speed
     db  25            ; Special
 
 ; --- Types & Training ---
     db BUG            ; Type 1
     db POISON         ; Type 2
-    db 120            ; Catch rate
+    db 195 ; 125      ; Catch rate
     db  71            ; Base exp yield
 
 ; --- Graphics ---

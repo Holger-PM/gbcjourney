@@ -10,7 +10,7 @@
 ; --- Types & Training ---
     db NORMAL         ; Type 1
     db NORMAL         ; Type 2
-    db  45            ; Catch rate
+    db 125 ; 45       ; Catch rate 
     db  92            ; Base exp yield
 
 ; --- Graphics ---

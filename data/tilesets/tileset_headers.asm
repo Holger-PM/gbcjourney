@@ -35,5 +35,5 @@ Tilesets:
 	tileset Plateau,      -1, -1, -1, $45, TILEANIM_WATER
 	tileset Safari,       -1, -1, -1, $20, TILEANIM_WATER
 	tileset RockTunnel,   -1, -1, -1,  -1, TILEANIM_NONE
-	tileset OverworldM,  -1, -1, -1, $52, TILEANIM_WATER_FLOWER
+	tileset ProfLab,      -1, -1, -1,  -1, TILEANIM_NONE
 	assert_table_length NUM_TILESETS

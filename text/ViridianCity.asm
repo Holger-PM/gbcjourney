@@ -183,15 +183,7 @@ _ViridianCitySignText::
 	done
 
 _ViridianCityTrainerTips1Text::
-	text "TRAINER TIPS"
-
-	para "Catch #MON"
-	line "and expand your"
-	cont "collection!"
-
-	para "The more you have,"
-	line "the easier it is"
-	cont "to fight!"
+	text "To the ROUTE 2."
 	done
 
 _ViridianCityTrainerTips2Text::

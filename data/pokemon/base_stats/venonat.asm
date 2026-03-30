@@ -10,7 +10,7 @@
 ; --- Types & Training ---
 	db BUG            ; Type 1
 	db POISON         ; Type 2
-	db 190            ; Catch rate
+	db 195 ; 190      ; Catch rate
 	db  75            ; Base exp yield
 
 ; --- Graphics ---

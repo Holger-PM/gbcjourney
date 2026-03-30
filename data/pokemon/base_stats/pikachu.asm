@@ -10,7 +10,7 @@
 ; --- Types & Training ---
 	db ELECTRIC       ; Type 1
 	db ELECTRIC       ; Type 2
-	db 190            ; Catch rate
+	db 125 ; 190      ; Catch rate
 	db  82            ; Base exp yield
 
 ; --- Graphics ---

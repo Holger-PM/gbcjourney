@@ -286,17 +286,17 @@ ItemUseBall:
 	call Divide
 	
 ; read status
-	ld b, 1
-	ld c, 1
-	ld a, [wEnemyMonStatus]
+	ld b, 7 ; 1
+	ld c, 10 ; 1
+	ld a, [wEnemyMonStatus] 
 	and a
-	jr z, .ailmentMultiplierFound
+	jr z, .ailmentMultiplierFound ; no status = *0,75
 	ld b, 3
 	ld c, 2
 	and (1 << FRZ) | SLP_MASK
-	jr z, .ailmentMultiplierFound
-	ld b, 2
-	ld c, 1
+	jr z, .ailmentMultiplierFound ; PAR, BRN, PSN = *1,5
+	ld b, 7
+	ld c, 3
 .ailmentMultiplierFound
 	ld a, b
 	ldh [hMultiplier], a
@@ -3128,8 +3128,8 @@ CompareDEHL:
 	
 BallMultipliers:
 ; 	db ITEM_ID, Numerator, Denominator
-	db POKE_BALL   , 1, 1	; x1
-	db GREAT_BALL  , 3, 2	; x1.5
-	db SAFARI_BALL , 3, 2   ; x1.5
-	db ULTRA_BALL  , 2, 1	; x2
+	db POKE_BALL   , 3, 4	; x0,75
+	db GREAT_BALL  , 4, 3	; x1.33
+	db SAFARI_BALL , 5, 2   ; x2.5
+	db ULTRA_BALL  , 4, 1	; x4
 	db -1 ; end

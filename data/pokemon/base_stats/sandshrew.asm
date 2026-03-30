@@ -10,7 +10,7 @@
 ; --- Types & Training ---
 	db GROUND         ; Type 1
 	db GROUND         ; Type 2
-	db 255            ; Catch rate
+	db 195 ; 255      ; Catch rate
 	db  93            ; Base exp yield
 
 ; --- Graphics ---

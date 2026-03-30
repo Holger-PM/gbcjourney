@@ -10,7 +10,7 @@
 ; --- Types & Training ---
 	db FIRE           ; Type 1
 	db FIRE           ; Type 2
-	db 190            ; Catch rate
+	db 125 ; 190      ; Catch rate
 	db  63            ; Base exp yield
 
 ; --- Graphics ---

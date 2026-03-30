@@ -8,11 +8,10 @@ SpecialTrainerMoves:
 	db 1, 4, FISSURE
 	db 0
 
-	db BROCK, 1
-	db 1, 3, ROCK_THROW
-	db 2, 1, CONSTRICT
-	db 2, 3, BIDE
-	db 2, 4, BIND
+	db BROCK, 1 ; db $FF, 12, GEODUDE, 14, ONIX
+	db 1, 1, ROCK_THROW
+	db 2, 1, BIDE
+	db 2, 2, ROCK_THROW
 	db 0
 
 	db BROCK, 2

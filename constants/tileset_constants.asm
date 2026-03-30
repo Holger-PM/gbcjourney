@@ -27,5 +27,5 @@
 	const PLATEAU      ; 23
 	const SAFARI       ; 24
 	const ROCK_TUNNEL  ; 25
-	const OVERWORLD_M  ; 26	
+	const PROF_LAB     ; 26	
 DEF NUM_TILESETS EQU const_value

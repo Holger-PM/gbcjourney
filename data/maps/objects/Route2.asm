@@ -14,7 +14,7 @@ Route2_Object:
 	warp_event  3, 43, VIRIDIAN_FOREST_SOUTH_GATE, 3
 
 	def_bg_events
-	bg_event  7, 69, TEXT_ROUTE2_SIGN
+	bg_event  7, 43, TEXT_ROUTE2_SIGN
 	bg_event 11, 11, TEXT_ROUTE2_DIGLETTS_CAVE_SIGN
 
 	def_object_events

@@ -1,14 +1,14 @@
 Route22WildMons:
 	def_grass_wildmons 22 ; encounter rate
-	db  4, NIDORAN_M
+	db  4, EKANS
 	db  4, SPEAROW
-	db  3, NIDORAN_F
+	db  3, SPEAROW
 	db  3, EKANS
 	db  4, EKANS
-	db  5, MANKEY
-	db  4, NIDORAN_F
-	db  5, RATTATA
-	db  8, SPEAROW
+	db  5, SANDSHREW
+	db  4, SANDSHREW
+	db  5, SANDSHREW
+	db  8, DODUO
 	db  5, DODUO
 	end_grass_wildmons
 
