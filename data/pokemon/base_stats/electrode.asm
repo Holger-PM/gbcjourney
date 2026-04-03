@@ -37,7 +37,6 @@ ENDC
     MIMIC,        \
     DOUBLE_TEAM,  \
     REFLECT,      \
-    BIDE,         \
     SELFDESTRUCT, \
     SWIFT,        \
     SKULL_BASH,   \

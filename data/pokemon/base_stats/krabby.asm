@@ -39,7 +39,6 @@ ENDC
 	RAGE,         \
 	MIMIC,        \
 	DOUBLE_TEAM,  \
-	BIDE,         \
 	REST,         \
 	SUBSTITUTE,   \
 	CUT,          \

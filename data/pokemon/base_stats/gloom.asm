@@ -37,7 +37,6 @@ ENDC
     MIMIC,        \
     DOUBLE_TEAM,  \
     REFLECT,      \
-    BIDE,         \
     REST,         \
     SUBSTITUTE,   \
     CUT

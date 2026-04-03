@@ -37,7 +37,6 @@ ENDC
 	MIMIC,        \
 	DOUBLE_TEAM,  \
 	REFLECT,      \
-	BIDE,         \
 	REST,         \
 	PSYWAVE,      \
 	SUBSTITUTE,   \

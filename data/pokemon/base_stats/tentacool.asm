@@ -40,7 +40,6 @@ ENDC
 	MIMIC,        \
 	DOUBLE_TEAM,  \
 	REFLECT,      \
-	BIDE,         \
 	SKULL_BASH,   \
 	REST,         \
 	SUBSTITUTE,   \

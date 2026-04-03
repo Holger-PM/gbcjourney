@@ -39,7 +39,6 @@ ENDC
 	THUNDER,      \
 	MIMIC,        \
 	DOUBLE_TEAM,  \
-	BIDE,         \
 	SWIFT,        \
 	SKULL_BASH,   \
 	REST,         \

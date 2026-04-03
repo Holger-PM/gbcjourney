@@ -50,7 +50,6 @@ ENDC
     TELEPORT,     \
     MIMIC,        \
     REFLECT,      \
-    BIDE,         \
     METRONOME,    \
     EGG_BOMB,     \
     FIRE_BLAST,   \

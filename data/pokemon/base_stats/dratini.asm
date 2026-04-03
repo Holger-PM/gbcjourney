@@ -42,7 +42,6 @@ ENDC
     MIMIC,        \
     DOUBLE_TEAM,  \
     REFLECT,      \
-    BIDE,         \
     FIRE_BLAST,   \
     SWIFT,        \
     SKULL_BASH,   \

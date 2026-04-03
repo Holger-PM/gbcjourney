@@ -38,7 +38,6 @@ ENDC
 	SOLARBEAM,    \
 	MIMIC,        \
 	DOUBLE_TEAM,  \
-	BIDE,         \
 	SKULL_BASH,   \
 	REST,         \
 	SUBSTITUTE,   \

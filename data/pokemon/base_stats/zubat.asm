@@ -35,7 +35,6 @@ ENDC
 	MEGA_DRAIN,   \
 	MIMIC,        \
 	DOUBLE_TEAM,  \
-	BIDE,         \
 	SWIFT,        \
 	REST,         \
 	SUBSTITUTE,   \

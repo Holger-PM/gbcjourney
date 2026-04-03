@@ -32,7 +32,6 @@ ENDC
 	TOXIC,        \
 	HORN_DRILL,   \
 	BODY_SLAM,    \
-	BIDE,         \
 	TAKE_DOWN,    \
 	DOUBLE_EDGE,  \
 	BUBBLEBEAM,   \

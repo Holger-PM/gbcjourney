@@ -41,7 +41,6 @@ ENDC
     DIG,          \
     MIMIC,        \
     DOUBLE_TEAM,  \
-    BIDE,         \
     METRONOME,    \
     SELFDESTRUCT, \
     FIRE_BLAST,   \

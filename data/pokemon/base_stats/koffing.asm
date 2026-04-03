@@ -34,7 +34,6 @@ ENDC
 	MIMIC,        \
 	SUBSTITUTE,   \
 	DOUBLE_TEAM,  \
-	BIDE,         \
 	SELFDESTRUCT, \
 	FIRE_BLAST,   \
 	REST,         \

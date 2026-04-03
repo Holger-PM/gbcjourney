@@ -42,7 +42,6 @@ ENDC
 	DIG,          \
 	MIMIC,        \
 	DOUBLE_TEAM,  \
-	BIDE,         \
 	METRONOME,    \
 	FIRE_BLAST,   \
 	SKULL_BASH,   \

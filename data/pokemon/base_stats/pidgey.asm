@@ -22,7 +22,7 @@ ENDC
 	dw PidgeyPicFront, PidgeyPicBack
 
 ; --- Moves & Growth ---
-	db TACKLE, SAND_ATTACK, NO_MOVE, NO_MOVE       ; Level 1 learnset
+	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE           ; Level 1 learnset
 	db GROWTH_MEDIUM_SLOW                          ; Growth rate
 
 ; --- TM/HM Learnset ---
@@ -35,7 +35,6 @@ ENDC
 	MIMIC,        \
 	DOUBLE_TEAM,  \
 	REFLECT,      \
-	BIDE,         \
 	SWIFT,        \
 	SKY_ATTACK,   \
 	REST,         \

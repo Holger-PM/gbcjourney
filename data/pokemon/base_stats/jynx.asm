@@ -47,7 +47,6 @@ ENDC
     MIMIC,        \
     DOUBLE_TEAM,  \
     REFLECT,      \
-    BIDE,         \
     METRONOME,    \
     SKULL_BASH,   \
     REST,         \

@@ -36,7 +36,6 @@ ENDC
     MIMIC,        \
     DOUBLE_TEAM,  \
     REFLECT,      \
-    BIDE,         \
     SWIFT,        \
     SKULL_BASH,   \
     REST,         \

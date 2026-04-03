@@ -39,7 +39,6 @@ ENDC
 	PSYCHIC_M,    \
 	MIMIC,        \
 	DOUBLE_TEAM,  \
-	BIDE,         \
 	SKULL_BASH,   \
 	REST,         \
 	PSYWAVE,      \

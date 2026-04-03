@@ -38,7 +38,6 @@ ENDC
     RAGE,         \
     MIMIC,        \
     DOUBLE_TEAM,  \
-    BIDE,         \
     SWIFT,        \
     SKULL_BASH,   \
     REST,         \

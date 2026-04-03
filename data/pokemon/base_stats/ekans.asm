@@ -38,7 +38,6 @@ ENDC
     DIG,          \
     MIMIC,        \
     DOUBLE_TEAM,  \
-    BIDE,         \
     SKULL_BASH,   \
     REST,         \
     ROCK_SLIDE,   \

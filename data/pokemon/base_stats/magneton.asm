@@ -38,7 +38,6 @@ ENDC
 	MIMIC,        \
 	DOUBLE_TEAM,  \
 	REFLECT,      \
-	BIDE,         \
 	SWIFT,        \
 	REST,         \
 	THUNDER_WAVE, \

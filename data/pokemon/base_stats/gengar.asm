@@ -44,7 +44,6 @@ ENDC
     PSYCHIC_M,    \
     MIMIC,        \
     DOUBLE_TEAM,  \
-    BIDE,         \
     METRONOME,    \
     SELFDESTRUCT, \
     SKULL_BASH,   \

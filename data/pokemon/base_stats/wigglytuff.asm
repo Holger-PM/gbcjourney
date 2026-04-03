@@ -50,7 +50,6 @@ ENDC
 	MIMIC,        \
 	DOUBLE_TEAM,  \
 	REFLECT,      \
-	BIDE,         \
 	FIRE_BLAST,   \
 	SKULL_BASH,   \
 	REST,         \

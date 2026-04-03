@@ -37,7 +37,7 @@ ENDC
 	DIG,          \
 	MIMIC,        \
 	DOUBLE_TEAM,  \
-	BIDE,         \
+	STONE_GUARD,  \
 	SELFDESTRUCT, \
 	SKULL_BASH,   \
 	REST,         \

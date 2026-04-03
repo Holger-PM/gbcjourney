@@ -38,7 +38,6 @@ ENDC
     DIG,          \
     MIMIC,        \
     DOUBLE_TEAM,  \
-    BIDE,         \
     REST,         \
     ROCK_SLIDE,   \
     SUBSTITUTE,   \

@@ -40,7 +40,6 @@ ENDC
 	MIMIC,        \
 	DOUBLE_TEAM,  \
 	REFLECT,      \
-	BIDE,         \
 	SWIFT,        \
 	REST,         \
 	PSYWAVE,      \

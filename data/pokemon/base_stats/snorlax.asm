@@ -52,7 +52,6 @@ ENDC
 	MIMIC,        \
 	DOUBLE_TEAM,  \
 	REFLECT,      \
-	BIDE,         \
 	METRONOME,    \
 	SELFDESTRUCT, \
 	FIRE_BLAST,   \

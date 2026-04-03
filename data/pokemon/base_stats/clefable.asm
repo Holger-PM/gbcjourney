@@ -51,7 +51,6 @@ ENDC
     MIMIC,        \
     DOUBLE_TEAM,  \
     REFLECT,      \
-    BIDE,         \
     METRONOME,    \
     FIRE_BLAST,   \
     SKULL_BASH,   \

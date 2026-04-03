@@ -35,7 +35,6 @@ ENDC
     RAGE,         \
     MIMIC,        \
     DOUBLE_TEAM,  \
-    BIDE,         \
     SWIFT,        \
     SKY_ATTACK,   \
     REST,         \

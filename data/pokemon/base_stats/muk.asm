@@ -36,7 +36,6 @@ ENDC
 	THUNDER,      \
 	MIMIC,        \
 	DOUBLE_TEAM,  \
-	BIDE,         \
 	SELFDESTRUCT, \
 	FIRE_BLAST,   \
 	EXPLOSION,    \

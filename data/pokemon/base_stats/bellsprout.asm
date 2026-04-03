@@ -22,7 +22,7 @@ ENDC
     dw BellsproutPicFront, BellsproutPicBack
 
 ; --- Moves & Growth ---
-    db GROWTH, VINE_WHIP, NO_MOVE, NO_MOVE            ; Level 1 learnset
+    db VINE_WHIP, NO_MOVE, NO_MOVE, NO_MOVE            ; Level 1 learnset
     db GROWTH_MEDIUM_SLOW                             ; Growth rate
 
 ; --- TM/HM Learnset ---
@@ -37,7 +37,6 @@ ENDC
     MIMIC,        \
     DOUBLE_TEAM,  \
     REFLECT,      \
-    BIDE,         \
     REST,         \
     SUBSTITUTE,   \
     CUT
