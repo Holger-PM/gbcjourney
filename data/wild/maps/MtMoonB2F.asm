@@ -1,6 +1,6 @@
 MtMoonB2FWildMons:
 	def_grass_wildmons 9 ; encounter rate
-	db 10, PARAS
+	db 10, ZUBAT
 	db 11, GEODUDE
 	db 13, PARAS
 	db 11, SANDSHREW

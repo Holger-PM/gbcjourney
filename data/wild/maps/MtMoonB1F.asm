@@ -1,12 +1,12 @@
 MtMoonB1FWildMons:
 	def_grass_wildmons 10 ; encounter rate
-	db  8, GEODUDE
-	db  9, SANDSHREW
-	db 10, SANDSHREW
+	db 10, ZUBAT
 	db 10, GEODUDE
-	db 11, GEODUDE
-	db 11, SANDSHREW
-	db  9, SANDSHREW
+	db 14, PARAS
+	db 12, GEODUDE
+	db 13, SANDSHREW
+	db 12, ZUBAT
+	db 14, SANDSHREW
 	db 16, ONIX
 	db 16, ONIX
 	db 12, CHARMANDER

@@ -84,8 +84,8 @@ YoungsterData:
 
 BugCatcherData:
 ; Viridian Forest
-	db $FF, CATERPIE, WEEDLE, VENONAT, 0
-	db $FF, 7, METAPOD, 6, CATERPIE, 7, KAKUNA, 0
+	db $FF, 8, CATERPIE, 9, WEEDLE, 10, VENONAT, 0
+	db $FF, 8, METAPOD, 7, CATERPIE, 8, KAKUNA, 0
 	db $FF, 8, PARAS, 10, GLOOM, 0
 ; Route 3
 	db $FF, 8, METAPOD, 8, KAKUNA, 10, BUTTERFREE, 0
@@ -492,9 +492,9 @@ Rival1Data:
 	db 5, BULBASAUR, 0
 	db 5, CHARMANDER, 0
 ; Route 22
-	db $FF, 9, PIDGEY, 8, SQUIRTLE, 0
-	db $FF, 9, PIDGEY, 8, BULBASAUR, 0
-	db $FF, 9, PIDGEY, 8, CHARMANDER, 0
+	db $FF, 8, PIDGEY, 9, SQUIRTLE, 0
+	db $FF, 8, PIDGEY, 9, BULBASAUR, 0
+	db $FF, 8, PIDGEY, 9, CHARMANDER, 0
 ; Cerulean City
 	db $FF, 18, PIDGEOTTO, 15, ABRA, 15, RATTATA, 19, SQUIRTLE, 0
 	db $FF, 18, PIDGEOTTO, 15, ABRA, 15, RATTATA, 19, BULBASAUR, 0
@@ -654,7 +654,7 @@ BrunoData:
 	db $FF, 71, CLEFABLE, 71, MUK, 70, SLOWBRO, 72, HITMONLEE, 72, RHYDON, 73, MACHAMP, 0
 
 BrockData: ; New poison gym leader
-	db $FF, 12, ZUBAT, 14, GASTLY, 0
+	db $FF, 12, GEODUDE, 14, ONIX, 0
 ; Rematch
 	db $FF, 64, OMASTAR, 65, ONIX, 64, KABUTOPS, 64, GOLEM, 64, NINETALES, 65, AERODACTYL, 0
 

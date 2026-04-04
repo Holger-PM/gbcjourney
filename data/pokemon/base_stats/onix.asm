@@ -2,10 +2,10 @@
 
 ; --- Base Stats ---
 	db  75            ; HP
-	db  80            ; Attack
-	db 160            ; Defense
-	db  85            ; Speed
-	db  65            ; Special
+	db  60            ; Attack
+	db 170            ; Defense
+	db  75            ; Speed
+	db  60            ; Special
 
 ; --- Types & Training ---
 	db ROCK           ; Type 1
