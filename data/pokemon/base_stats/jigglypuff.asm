@@ -22,7 +22,7 @@ ENDC
     dw JigglypuffPicFront, JigglypuffPicBack
 
 ; --- Moves & Growth ---
-    db SING, NO_MOVE, NO_MOVE, NO_MOVE             ; Level 1 learnset
+    db POUND, SING, NO_MOVE, NO_MOVE               ; Level 1 learnset
     db GROWTH_FAST                                 ; Growth rate
 
 ; --- TM/HM Learnset ---

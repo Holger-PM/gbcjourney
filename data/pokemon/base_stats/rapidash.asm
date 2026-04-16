@@ -22,7 +22,7 @@ ENDC
 	dw RapidashPicFront, RapidashPicBack
 
 ; --- Moves & Growth ---
-	db EMBER, TAIL_WHIP, NO_MOVE, NO_MOVE          ; Level 1 learnset
+	db EMBER, TACKLE, NO_MOVE, NO_MOVE             ; Level 1 learnset
 	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
 ; --- TM/HM Learnset ---

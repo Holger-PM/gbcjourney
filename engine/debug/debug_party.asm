@@ -86,7 +86,7 @@ IF DEF(_DEBUG)
 
 	; Pikachu gets Flash.
 	ld hl, wPartyMon6Moves + 2
-	ld a, FLASH
+	ld a, MEGA_PUNCH
 	ld [hl], a
 	ld hl, wPartyMon6PP + 2
 	ld a, 15

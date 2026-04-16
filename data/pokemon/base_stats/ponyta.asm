@@ -22,7 +22,7 @@ ENDC
 	dw PonytaPicFront, PonytaPicBack
 
 ; --- Moves & Growth ---
-	db EMBER, NO_MOVE, NO_MOVE, NO_MOVE            ; Level 1 learnset
+	db EMBER, TACKLE, NO_MOVE, NO_MOVE             ; Level 1 learnset
 	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
 ; --- TM/HM Learnset ---

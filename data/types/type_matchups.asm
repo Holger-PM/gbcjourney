@@ -34,6 +34,7 @@ TypeEffects:
 	db ICE,          GRASS,        SUPER_EFFECTIVE
 	db ICE,          GROUND,       SUPER_EFFECTIVE
 	db ICE,          FLYING,       SUPER_EFFECTIVE
+;	db ICE,          FIRE,         SUPER_EFFECTIVE		; Gen 2 correction
 	db FIGHTING,     NORMAL,       SUPER_EFFECTIVE
 	db FIGHTING,     POISON,       NOT_VERY_EFFECTIVE
 	db FIGHTING,     FLYING,       NOT_VERY_EFFECTIVE
@@ -45,7 +46,7 @@ TypeEffects:
 	db POISON,       GRASS,        SUPER_EFFECTIVE
 	db POISON,       POISON,       NOT_VERY_EFFECTIVE
 	db POISON,       GROUND,       NOT_VERY_EFFECTIVE
-	db POISON,       BUG,          SUPER_EFFECTIVE
+;	db POISON,       BUG,          SUPER_EFFECTIVE		; Gen 2 correction
 	db POISON,       ROCK,         NOT_VERY_EFFECTIVE
 	db POISON,       GHOST,        NOT_VERY_EFFECTIVE
 	db GROUND,       FIRE,         SUPER_EFFECTIVE
@@ -67,6 +68,7 @@ TypeEffects:
 	db BUG,          FLYING,       NOT_VERY_EFFECTIVE
 	db BUG,          PSYCHIC_TYPE, SUPER_EFFECTIVE
 	db BUG,          GHOST,        NOT_VERY_EFFECTIVE
+	db BUG,          POISON,       NOT_VERY_EFFECTIVE	; Gen 2 correction
 	db ROCK,         FIRE,         SUPER_EFFECTIVE
 	db ROCK,         FIGHTING,     NOT_VERY_EFFECTIVE
 	db ROCK,         GROUND,       NOT_VERY_EFFECTIVE
@@ -74,7 +76,7 @@ TypeEffects:
 	db ROCK,         BUG,          SUPER_EFFECTIVE
 	db ROCK,         ICE,          SUPER_EFFECTIVE
 	db GHOST,        NORMAL,       NO_EFFECT
-	db GHOST,        PSYCHIC_TYPE, SUPER_EFFECTIVE
+	db GHOST,        PSYCHIC_TYPE, SUPER_EFFECTIVE		; Gen 2 correction
 	db FIRE,         DRAGON,       NOT_VERY_EFFECTIVE
 	db WATER,        DRAGON,       NOT_VERY_EFFECTIVE
 	db ELECTRIC,     DRAGON,       NOT_VERY_EFFECTIVE

@@ -4391,6 +4391,9 @@ GetDamageVarsForPlayerAttack:
 ; if the enemy has used Reflect, double the enemy's defense
 	sla c
 	rl b
+;;;;;joenote - adding in a 999 cap
+	predef BC999cap
+;;;
 .physicalAttackCritCheck
 	ld hl, wBattleMonAttack
 	ld a, [wCriticalHitOrOHKO]
@@ -4409,6 +4412,7 @@ GetDamageVarsForPlayerAttack:
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes
 	pop bc
+	predef CritHitStatsPlayerPhysical	;joenote - adjust stats for critical hits
 	jr .scaleStats
 .specialAttack
 	ld hl, wEnemyMonSpecial
@@ -4423,6 +4427,9 @@ GetDamageVarsForPlayerAttack:
 	rl b
 ; reflect and light screen boosts do not cap the stat at MAX_STAT_VALUE, so weird things will happen during stats scaling
 ; if a Pokemon with 512 or more Defense has used Reflect, or if a Pokemon with 512 or more Special has used Light Screen
+;;;;;joenote - adding in a 999 cap
+	predef BC999cap
+;;;
 .specialAttackCritCheck
 	ld hl, wBattleMonSpecial
 	ld a, [wCriticalHitOrOHKO]
@@ -4441,6 +4448,7 @@ GetDamageVarsForPlayerAttack:
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes
 	pop bc
+	predef CritHitStatsEnemySpecial	;joenote - adjust stats for critical hits	
 ; if either the offensive or defensive stat is too large to store in a byte, scale both stats by dividing them by 4
 ; this allows values with up to 10 bits (values up to 1023) to be handled
 ; anything larger will wrap around
@@ -4527,6 +4535,9 @@ GetDamageVarsForEnemyAttack:
 ; if the player has used Reflect, double the player's defense
 	sla c
 	rl b
+;;;;;joenote - adding in a 999 cap
+	predef BC999cap
+;;;
 .physicalAttackCritCheck
 	ld hl, wEnemyMonAttack
 	ld a, [wCriticalHitOrOHKO]
@@ -4545,6 +4556,7 @@ GetDamageVarsForEnemyAttack:
 	call GetEnemyMonStat
 	ld hl, hProduct + 2
 	pop bc
+	predef CritHitStatsPlayerPhysical	;joenote - adjust stats for critical hits
 	jr .scaleStats
 .specialAttack
 	ld hl, wBattleMonSpecial
@@ -4559,6 +4571,9 @@ GetDamageVarsForEnemyAttack:
 	rl b
 ; reflect and light screen boosts do not cap the stat at MAX_STAT_VALUE, so weird things will happen during stats scaling
 ; if a Pokemon with 512 or more Defense has used Reflect, or if a Pokemon with 512 or more Special has used Light Screen
+;;;;;joenote - adding in a 999 cap
+	predef BC999cap
+;;;
 .specialAttackCritCheck
 	ld hl, wEnemyMonSpecial
 	ld a, [wCriticalHitOrOHKO]
@@ -4577,6 +4592,7 @@ GetDamageVarsForEnemyAttack:
 	call GetEnemyMonStat
 	ld hl, hProduct + 2
 	pop bc
+	predef CritHitStatsPlayerSpecial	;joenote - adjust stats for critical hits
 ; if either the offensive or defensive stat is too large to store in a byte, scale both stats by dividing them by 4
 ; this allows values with up to 10 bits (values up to 1023) to be handled
 ; anything larger will wrap around
@@ -4728,6 +4744,16 @@ CalculateDamage:
 ; Add 2
 	inc [hl]
 	inc [hl]
+	
+;joenote - ; Add 2 more if critical hit (very slight crit damage increase but greatly simplifies some algebra)
+	push af
+	ld a, [wCriticalHitOrOHKO]
+	cp 1
+	jr c, .nocrit2
+	inc [hl]
+	inc [hl]
+.nocrit2
+	pop af
 
 	inc hl ; multiplier
 

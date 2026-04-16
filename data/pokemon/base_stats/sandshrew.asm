@@ -40,7 +40,6 @@ ENDC
 	DIG,          \
 	MIMIC,        \
 	DOUBLE_TEAM,  \
-	STONE_GUARD,  \
 	SWIFT,        \
 	SKULL_BASH,   \
 	REST,         \

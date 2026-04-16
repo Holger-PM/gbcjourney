@@ -50,3 +50,9 @@ GetPredefPointer::
 	ret
 
 INCLUDE "data/predef_pointers.asm"
+
+	add_predef CritHitStatsPlayerPhysical
+	add_predef CritHitStatsPlayerSpecial
+	add_predef CritHitStatsEnemyPhysical
+	add_predef CritHitStatsEnemySpecial
+	add_predef BC999cap

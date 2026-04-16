@@ -22,7 +22,7 @@ ENDC
 	dw ZubatPicFront, ZubatPicBack
 
 ; --- Moves & Growth ---
-	db LEECH_LIFE, NO_MOVE, NO_MOVE, NO_MOVE       ; Level 1 learnset
+	db ABSORB, NO_MOVE, NO_MOVE, NO_MOVE           ; Level 1 learnset
 	db GROWTH_MEDIUM_FAST                          ; Growth rate
 
 ; --- TM/HM Learnset ---
